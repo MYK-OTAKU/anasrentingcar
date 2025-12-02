@@ -1,8 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import Link from "next/link"
-import { Users, Fuel, Settings, MessageCircle } from "lucide-react"
+import { Users, Fuel, Settings } from "lucide-react"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -14,7 +13,7 @@ interface CarCardProps {
 }
 
 export function CarCard({ car }: CarCardProps) {
-  const { t } = useI18n()
+  const { t, language } = useI18n()
 
   const categoryLabels: Record<string, string> = {
     citadine: t.car.citadine,
@@ -37,7 +36,9 @@ export function CarCard({ car }: CarCardProps) {
 
   const whatsappNumber = "212600000000" // Replace with actual number
   const whatsappMessage = encodeURIComponent(
-    `Bonjour, je suis intéressé(e) par la location de: ${car.brand} ${car.model} (${categoryLabels[car.category]}) - ${car.price_per_day} DH/jour. Merci de me contacter.`,
+    language === "fr"
+      ? `Bonjour, je suis intéressé(e) par la location de: ${car.brand} ${car.model} (${categoryLabels[car.category]}) - ${car.price_per_day} DH/jour. Merci de me contacter.`
+      : `Hello, I'm interested in renting: ${car.brand} ${car.model} (${categoryLabels[car.category]}) - ${car.price_per_day} DH/day. Please contact me.`,
   )
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
@@ -83,21 +84,11 @@ export function CarCard({ car }: CarCardProps) {
             <span className="text-sm text-muted-foreground"> {t.car.perDay}</span>
           </div>
         </div>
-        <div className="flex w-full gap-2">
-          <Button asChild className="flex-1">
-            <Link href={`/contact?car=${car.id}`}>{t.car.reserve}</Link>
-          </Button>
-          <Button
-            variant="outline"
-            size="icon"
-            className="flex-shrink-0 border-green-500 text-green-500 hover:bg-green-500 hover:text-white bg-transparent"
-            asChild
-          >
-            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-              <MessageCircle className="h-5 w-5" />
-            </a>
-          </Button>
-        </div>
+        <Button asChild className="w-full">
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+            {t.car.reserve}
+          </a>
+        </Button>
       </CardFooter>
     </Card>
   )

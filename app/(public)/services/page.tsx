@@ -61,7 +61,7 @@ export default function ServicesPage() {
             ))}
           </div>
           {filteredCars.length === 0 && (
-            <div className="mt-8 text-center text-muted-foreground">Aucun véhicule ne correspond à vos critères.</div>
+            <div className="mt-8 text-center text-muted-foreground">{t.services.noResults}</div>
           )}
         </div>
       </section>
