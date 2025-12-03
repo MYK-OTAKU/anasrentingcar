@@ -17,7 +17,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="YR Car Location" width={40} height={40} className="h-10 w-auto" />
+              <Image src="/icon.png" alt="YR Car Location" width={40} height={40} className="h-10 w-auto" />
               <span className="text-lg font-bold text-foreground">YR Car Location</span>
             </Link>
             <p className="text-sm text-muted-foreground">{t.footer.description}</p>

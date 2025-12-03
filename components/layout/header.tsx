@@ -25,7 +25,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/logo.png" alt="YR Car Location" width={48} height={48} className="h-10 w-auto md:h-12 transition-transform group-hover:scale-110" />
+          <Image src="/icon.png" alt="YR Car Location" width={48} height={48} className="h-10 w-auto md:h-12 transition-transform group-hover:scale-110" />
           <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent md:text-xl">YR Car Location</span>
         </Link>
 

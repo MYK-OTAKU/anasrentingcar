@@ -9,6 +9,7 @@ const _inter = Inter({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://yrcar.ma'),
   title: {
     default: "YR Car Location - Location de voitures au Maroc | Prix compétitifs",
     template: "%s | YR Car Location",
@@ -26,26 +27,71 @@ export const metadata: Metadata = {
     "location longue durée Maroc",
     "voiture de location qualité",
     "location auto Maroc prix",
+    "rent a car Morocco",
+    "car hire Casablanca",
+    "location voiture Rabat",
+    "location voiture Marrakech",
+    "استئجار سيارة المغرب",
   ],
   authors: [{ name: "YR Car Location" }],
+  creator: "YR Car Location",
+  publisher: "YR Car Location",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://yrcar.ma',
+    languages: {
+      'en': 'https://yrcar.ma/en',
+      'ar': 'https://yrcar.ma/ar',
+    },
+  },
   openGraph: {
     type: "website",
     locale: "fr_FR",
+    url: 'https://yrcar.ma',
     siteName: "YR Car Location",
     title: "YR Car Location - Location de voitures au Maroc",
     description: "Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7. Réservez maintenant!",
+    images: [
+      {
+        url: '/icon.png',
+        width: 512,
+        height: 512,
+        alt: 'YR Car Location Logo',
+      },
+    ],
   },
-  generator: 'MYK',
+  twitter: {
+    card: 'summary_large_image',
+    title: 'YR Car Location - Location de voitures au Maroc',
+    description: 'Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7.',
+    images: ['/icon.png'],
+  },
+  verification: {
+    // À remplir après création des comptes
+    google: 'google-site-verification-code',
+    // yandex: 'yandex-verification-code',
+    // bing: 'bing-verification-code',
+  },
+  category: 'business',
+  generator: 'Next.js',
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/icon-light.svg', media: '(prefers-color-scheme: light)', type: 'image/svg+xml' },
-      { url: '/icon-dark.svg', media: '(prefers-color-scheme: dark)', type: 'image/svg+xml' },
+      { url: '/favicon.ico' },
+      { url: '/icon.png' },
+      { url: '/icon-light.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark.png', media: '(prefers-color-scheme: dark)' },
     ],
-    apple: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
-    shortcut: '/icon.ico',
+    apple: '/apple-icon.png',
   },
 }
 
