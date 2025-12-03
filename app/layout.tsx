@@ -35,15 +35,17 @@ export const metadata: Metadata = {
     title: "YR Car Location - Location de voitures au Maroc",
     description: "Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7. Réservez maintenant!",
   },
-  generator: 'v0.app',
+  generator: 'MYK',
   icons: {
     icon: [
-      { url: '/favicon.ico' },
-      { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
-      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/icon-light.svg', media: '(prefers-color-scheme: light)', type: 'image/svg+xml' },
+      { url: '/icon-dark.svg', media: '(prefers-color-scheme: dark)', type: 'image/svg+xml' },
     ],
-    apple: '/apple-icon.png',
+    apple: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+    ],
+    shortcut: '/icon.ico',
   },
 }
 
