@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Menu, X, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { LanguageSwitcher } from "@/components/language-switcher"
+import { ThemeToggle } from "@/components/theme-toggle"
 import { useI18n } from "@/lib/i18n/context"
 import { cn } from "@/lib/utils"
 
@@ -15,18 +16,17 @@ export function Header() {
 
   const navigation = [
     { name: t.nav.home, href: "/" },
-    { name: t.nav.about, href: "/about" },
     { name: t.nav.services, href: "/services" },
     { name: t.nav.contact, href: "/contact" },
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow-lg shadow-primary/5">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/logo.png" alt="YR Location" width={48} height={48} className="h-10 w-auto md:h-12" />
-          <span className="text-lg font-bold text-foreground md:text-xl">YR Location</span>
+        <Link href="/" className="flex items-center gap-2 group">
+          <Image src="/logo.png" alt="YR Car Location" width={48} height={48} className="h-10 w-auto md:h-12 transition-transform group-hover:scale-110" />
+          <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent md:text-xl">YR Car Location</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -44,6 +44,7 @@ export function Header() {
 
         {/* Desktop CTA */}
         <div className="hidden lg:flex lg:items-center lg:gap-4">
+          <ThemeToggle />
           <LanguageSwitcher />
           <a
             href="tel:+212600000000"
@@ -59,6 +60,7 @@ export function Header() {
 
         {/* Mobile menu button */}
         <div className="flex items-center gap-2 lg:hidden">
+          <ThemeToggle />
           <LanguageSwitcher />
           <button
             type="button"

@@ -17,11 +17,11 @@ export function LanguageSwitcher() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setLanguage("fr")} className={language === "fr" ? "bg-muted" : ""}>
-          🇫🇷 Français
-        </DropdownMenuItem>
         <DropdownMenuItem onClick={() => setLanguage("en")} className={language === "en" ? "bg-muted" : ""}>
-          🇬🇧 English
+          English
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={() => setLanguage("ar")} className={language === "ar" ? "bg-muted" : ""}>
+          العربية
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

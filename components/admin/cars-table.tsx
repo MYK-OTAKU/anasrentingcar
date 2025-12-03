@@ -5,7 +5,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 import type { Car } from "@/lib/types"
-import { createClient } from "@/lib/supabase/client"
+import { deleteCar } from "@/app/actions/cars"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -20,7 +20,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { Pencil, Trash2 } from "lucide-react"
+import { Pencil, Trash2, Loader2 } from "lucide-react"
 
 const categoryLabels: Record<string, string> = {
   citadine: "Citadine",
@@ -39,12 +39,13 @@ export function CarsTable({ cars }: CarsTableProps) {
 
   const handleDelete = async (id: string) => {
     setDeletingId(id)
-    const supabase = createClient()
+    
+    const result = await deleteCar(id)
 
-    const { error } = await supabase.from("cars").delete().eq("id", id)
-
-    if (!error) {
+    if (!result.error) {
       router.refresh()
+    } else {
+      alert(result.error)
     }
     setDeletingId(null)
   }
@@ -92,7 +93,7 @@ export function CarsTable({ cars }: CarsTableProps) {
               <TableCell>
                 <Badge variant="secondary">{categoryLabels[car.category]}</Badge>
               </TableCell>
-              <TableCell className="font-medium">{car.price_per_day}€</TableCell>
+              <TableCell className="font-medium">{car.price_per_day} DH</TableCell>
               <TableCell>
                 <Badge variant={car.available ? "default" : "outline"}>
                   {car.available ? "Disponible" : "Indisponible"}

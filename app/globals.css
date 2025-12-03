@@ -4,8 +4,8 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* <CHANGE> Custom brand colors derived from the YR logo (yellow-orange gradient) */
-  --background: oklch(0.99 0.005 90);
+  /* Thème clair - Gris doux avec accents dorés */
+  --background: oklch(0.96 0.005 75); /* Gris très clair, pas blanc pur */
   --foreground: oklch(0.2 0.02 60);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.2 0.02 60);
@@ -18,14 +18,14 @@
   --secondary: oklch(0.96 0.01 80);
   --secondary-foreground: oklch(0.25 0.02 60);
   /* Muted: warm off-white */
-  --muted: oklch(0.95 0.01 85);
+  --muted: oklch(0.93 0.01 75); /* Muted plus foncé pour sections */
   --muted-foreground: oklch(0.5 0.02 60);
   /* Accent: golden yellow from logo */
   --accent: oklch(0.85 0.17 85);
   --accent-foreground: oklch(0.2 0.02 60);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.01 80);
+  --border: oklch(0.88 0.01 75);
   --input: oklch(0.92 0.01 80);
   --ring: oklch(0.75 0.18 55);
   --chart-1: oklch(0.75 0.18 55);
@@ -45,38 +45,59 @@
 }
 
 .dark {
-  --background: oklch(0.15 0.01 60);
-  --foreground: oklch(0.95 0.005 90);
-  --card: oklch(0.18 0.01 60);
-  --card-foreground: oklch(0.95 0.005 90);
-  --popover: oklch(0.18 0.01 60);
-  --popover-foreground: oklch(0.95 0.005 90);
-  --primary: oklch(0.78 0.18 55);
-  --primary-foreground: oklch(0.15 0.01 60);
-  --secondary: oklch(0.25 0.01 60);
-  --secondary-foreground: oklch(0.95 0.005 90);
-  --muted: oklch(0.25 0.01 60);
-  --muted-foreground: oklch(0.7 0.01 80);
-  --accent: oklch(0.8 0.15 80);
-  --accent-foreground: oklch(0.15 0.01 60);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.28 0.01 60);
-  --input: oklch(0.28 0.01 60);
-  --ring: oklch(0.78 0.18 55);
-  --chart-1: oklch(0.78 0.18 55);
-  --chart-2: oklch(0.8 0.15 80);
-  --chart-3: oklch(0.65 0.12 45);
-  --chart-4: oklch(0.55 0.1 60);
-  --chart-5: oklch(0.5 0.08 70);
-  --sidebar: oklch(0.18 0.01 60);
-  --sidebar-foreground: oklch(0.95 0.005 90);
-  --sidebar-primary: oklch(0.78 0.18 55);
-  --sidebar-primary-foreground: oklch(0.15 0.01 60);
-  --sidebar-accent: oklch(0.25 0.01 60);
-  --sidebar-accent-foreground: oklch(0.95 0.005 90);
-  --sidebar-border: oklch(0.28 0.01 60);
-  --sidebar-ring: oklch(0.78 0.18 55);
+  /* Fond gris très sombre, pas noir pur - doux pour les yeux */
+  --background: oklch(0.18 0.01 60);
+  --foreground: oklch(0.98 0.01 85);
+  
+  /* Cartes avec fond légèrement plus clair */
+  --card: oklch(0.22 0.015 60);
+  --card-foreground: oklch(0.98 0.01 85);
+  
+  --popover: oklch(0.22 0.015 60);
+  --popover-foreground: oklch(0.98 0.01 85);
+  
+  /* Doré vibrant pour primary */
+  --primary: oklch(0.82 0.15 75);
+  --primary-foreground: oklch(0.18 0.01 60);
+  
+  /* Gris-noir pour secondary */
+  --secondary: oklch(0.22 0.01 60);
+  --secondary-foreground: oklch(0.98 0.01 85);
+  
+  /* Muted sombre avec touche dorée */
+  --muted: oklch(0.22 0.01 65);
+  --muted-foreground: oklch(0.65 0.01 75);
+  
+  /* Accent doré lumineux */
+  --accent: oklch(0.85 0.16 80);
+  --accent-foreground: oklch(0.12 0.01 60);
+  
+  --destructive: oklch(0.50 0.20 25);
+  --destructive-foreground: oklch(0.98 0.01 85);
+  
+  /* Bordures subtiles */
+  --border: oklch(0.25 0.015 65);
+  --input: oklch(0.25 0.015 65);
+  
+  /* Ring doré */
+  --ring: oklch(0.82 0.15 75);
+  
+  /* Charts avec palette noir/doré */
+  --chart-1: oklch(0.82 0.15 75);
+  --chart-2: oklch(0.85 0.16 80);
+  --chart-3: oklch(0.70 0.12 70);
+  --chart-4: oklch(0.60 0.10 65);
+  --chart-5: oklch(0.50 0.08 60);
+  
+  /* Sidebar */
+  --sidebar: oklch(0.20 0.01 60);
+  --sidebar-foreground: oklch(0.98 0.01 85);
+  --sidebar-primary: oklch(0.82 0.15 75);
+  --sidebar-primary-foreground: oklch(0.18 0.01 60);
+  --sidebar-accent: oklch(0.22 0.01 65);
+  --sidebar-accent-foreground: oklch(0.98 0.01 85);
+  --sidebar-border: oklch(0.25 0.015 65);
+  --sidebar-ring: oklch(0.82 0.15 75);
 }
 
 @theme inline {
@@ -127,4 +148,165 @@
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Scrollbar personnalisée en noir et doré */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: oklch(0.12 0.01 60);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.82 0.15 75);
+    border-radius: 5px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.85 0.16 80);
+  }
+  
+  /* Effet de brillance doré sur les éléments interactifs */
+  .dark .gold-glow {
+    box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+  }
+  
+  .dark .gold-glow:hover {
+    box-shadow: 0 0 30px rgba(218, 165, 32, 0.5);
+  }
 }
+
+/* Animations personnalisées */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(218, 165, 32, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(218, 165, 32, 0.8), 0 0 30px rgba(218, 165, 32, 0.5);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.9s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Délais d'animation avec notation Tailwind */
+.\[animation-delay\:200ms\] {
+  animation-delay: 200ms;
+}
+
+.\[animation-delay\:300ms\] {
+  animation-delay: 300ms;
+}
+
+.\[animation-delay\:400ms\] {
+  animation-delay: 400ms;
+}
+
+.\[animation-delay\:500ms\] {
+  animation-delay: 500ms;
+}
+
+.\[animation-delay\:600ms\] {
+  animation-delay: 600ms;
+}
+
+.\[animation-delay\:700ms\] {
+  animation-delay: 700ms;
+}
+

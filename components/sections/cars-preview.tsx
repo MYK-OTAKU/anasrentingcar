@@ -1,10 +1,14 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CarCard } from "@/components/cards/car-card"
 import { mockCars } from "@/lib/mock-data"
 import { ArrowRight } from "lucide-react"
+import { useI18n } from "@/lib/i18n/context"
 
 export function CarsPreview() {
+  const { t } = useI18n()
   // Show first 3 cars for preview
   const previewCars = mockCars.slice(0, 3)
 
@@ -13,12 +17,14 @@ export function CarsPreview() {
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="mb-12 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h2 className="text-balance text-3xl font-bold text-foreground sm:text-4xl">Notre gamme de véhicules</h2>
-            <p className="mt-2 text-muted-foreground">Découvrez notre sélection de voitures pour tous vos besoins</p>
+            <h2 className="text-balance text-3xl font-bold text-foreground sm:text-4xl">
+              {t.carsPreview.title} <span className="text-primary">{t.carsPreview.titleHighlight}</span>
+            </h2>
+            <p className="mt-2 text-muted-foreground">{t.carsPreview.subtitle}</p>
           </div>
           <Button variant="outline" asChild>
             <Link href="/services">
-              Voir tous les véhicules
+              {t.carsPreview.viewAll}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

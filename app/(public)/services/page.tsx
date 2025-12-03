@@ -1,24 +1,47 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState, useMemo, useEffect } from "react"
 import { CarCard } from "@/components/cards/car-card"
 import { CarsFilter } from "@/components/sections/cars-filter"
-import { mockCars } from "@/lib/mock-data"
+import { Button } from "@/components/ui/button"
 import { useI18n } from "@/lib/i18n/context"
+import { createClient } from "@/lib/supabase/client"
+import type { Car } from "@/lib/types"
+import { Loader2 } from "lucide-react"
+
+const CARS_PER_PAGE = 9
 
 export default function ServicesPage() {
   const { t } = useI18n()
   const [filters, setFilters] = useState({ category: "", priceRange: "", sortBy: "" })
+  const [cars, setCars] = useState<Car[]>([])
+  const [loading, setLoading] = useState(true)
+  const [displayCount, setDisplayCount] = useState(CARS_PER_PAGE)
+
+  useEffect(() => {
+    async function fetchCars() {
+      const supabase = createClient()
+      const { data } = await supabase
+        .from("cars")
+        .select("*")
+        .eq("available", true)
+        .order("created_at", { ascending: false })
+
+      setCars(data || [])
+      setLoading(false)
+    }
+    fetchCars()
+  }, [])
 
   const filteredCars = useMemo(() => {
-    let result = [...mockCars]
+    let result = [...cars]
 
     // Filter by category
     if (filters.category && filters.category !== "all") {
       result = result.filter((car) => car.category === filters.category)
     }
 
-    // Filter by price range (in DH)
+    // Filter by price range
     if (filters.priceRange && filters.priceRange !== "all") {
       const [min, max] = filters.priceRange.split("-").map(Number)
       if (max) {
@@ -37,7 +60,10 @@ export default function ServicesPage() {
     }
 
     return result
-  }, [filters])
+  }, [cars, filters])
+
+  const displayedCars = filteredCars.slice(0, displayCount)
+  const hasMore = displayCount < filteredCars.length
 
   return (
     <>
@@ -55,13 +81,35 @@ export default function ServicesPage() {
       <section className="py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <CarsFilter onFilterChange={setFilters} />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredCars.map((car) => (
-              <CarCard key={car.id} car={car} />
-            ))}
-          </div>
-          {filteredCars.length === 0 && (
-            <div className="mt-8 text-center text-muted-foreground">{t.services.noResults}</div>
+          
+          {loading ? (
+            <div className="mt-8 flex justify-center py-12">
+              <Loader2 className="h-8 w-8 animate-spin text-primary" />
+            </div>
+          ) : (
+            <>
+              <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {displayedCars.map((car) => (
+                  <CarCard key={car.id} car={car} />
+                ))}
+              </div>
+              
+              {filteredCars.length === 0 && (
+                <div className="mt-8 text-center text-muted-foreground">{t.services.noResults}</div>
+              )}
+              
+              {hasMore && (
+                <div className="mt-12 flex justify-center">
+                  <Button
+                    onClick={() => setDisplayCount((prev) => prev + CARS_PER_PAGE)}
+                    size="lg"
+                    variant="outline"
+                  >
+                    {t.common.loadMore} ({filteredCars.length - displayCount} {t.common.remaining})
+                  </Button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </section>

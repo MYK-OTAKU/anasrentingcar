@@ -22,6 +22,7 @@ export interface Review {
   rating: number
   comment: string
   approved: boolean
+  display_order?: number
   created_at: string
 }
 

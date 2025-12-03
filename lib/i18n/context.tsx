@@ -12,13 +12,17 @@ interface I18nContextType {
 const I18nContext = createContext<I18nContextType | undefined>(undefined)
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>("fr")
+  const [language, setLanguageState] = useState<Language>("en")
 
   useEffect(() => {
     // Load saved language preference
     const saved = localStorage.getItem("language") as Language
-    if (saved && (saved === "fr" || saved === "en")) {
+    if (saved && (saved === "fr" || saved === "en" || saved === "ar")) {
       setLanguageState(saved)
+      document.documentElement.dir = saved === "ar" ? "rtl" : "ltr"
+    } else {
+      // Set default direction
+      document.documentElement.dir = "ltr"
     }
   }, [])
 
@@ -26,6 +30,8 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     setLanguageState(lang)
     localStorage.setItem("language", lang)
     document.documentElement.lang = lang
+    // Set text direction for Arabic
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr"
   }
 
   const t = translations[language]

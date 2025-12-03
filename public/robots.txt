@@ -1,0 +1,14 @@
+# Autorise tous les robots d'indexation
+User-agent: *
+Allow: /
+
+# Interdire l'accès aux zones admin
+Disallow: /admin/
+Disallow: /api/
+
+# Fichiers et dossiers à ne pas indexer
+Disallow: /_next/
+Disallow: /static/
+
+# Sitemap
+Sitemap: https://yrcar.ma/sitemap.xml

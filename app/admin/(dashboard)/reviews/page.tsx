@@ -4,7 +4,11 @@ import { ReviewsTable } from "@/components/admin/reviews-table"
 
 async function getReviews() {
   const supabase = await createClient()
-  const { data } = await supabase.from("reviews").select("*").order("created_at", { ascending: false })
+  const { data } = await supabase
+    .from("reviews")
+    .select("*")
+    .order("display_order", { ascending: true, nullsFirst: false })
+    .order("created_at", { ascending: false })
   return data || []
 }
 

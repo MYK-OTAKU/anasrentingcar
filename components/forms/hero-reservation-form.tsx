@@ -102,6 +102,7 @@ export function HeroReservationForm() {
               type="date"
               required
               min={new Date().toISOString().split("T")[0]}
+              defaultValue={new Date().toISOString().split("T")[0]}
             />
           </div>
           <div className="space-y-2">
@@ -126,6 +127,7 @@ export function HeroReservationForm() {
               type="date"
               required
               min={new Date().toISOString().split("T")[0]}
+              defaultValue={new Date().toISOString().split("T")[0]}
             />
           </div>
           <div className="space-y-2">

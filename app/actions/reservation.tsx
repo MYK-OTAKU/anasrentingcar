@@ -51,7 +51,7 @@ Téléphone: ${data.phone}
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY)
       await resend.emails.send({
-        from: "YR Location <onboarding@resend.dev>",
+        from: "YR Car <onboarding@resend.dev>",
         to: ["m2017koita@gmail.com"],
         subject: `Nouvelle réservation - ${data.phone}`,
         html: `

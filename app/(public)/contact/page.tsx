@@ -2,6 +2,7 @@
 
 import { Phone, Mail, MapPin, Clock } from "lucide-react"
 import { ContactForm } from "@/components/forms/contact-form"
+import { ReviewForm } from "@/components/forms/review-form"
 import { FaqSection } from "@/components/sections/faq-section"
 import { useI18n } from "@/lib/i18n/context"
 
@@ -96,11 +97,22 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation YR Location - Casablanca"
+                  title="Localisation YR Car - Casablanca"
                 />
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Review Form Section */}
+      <section className="border-t border-border bg-muted/20 py-12 lg:py-16">
+        <div className="mx-auto max-w-4xl px-4 lg:px-8">
+          <div className="mb-8 text-center">
+            <h2 className="text-3xl font-bold text-foreground">{t.contact.shareExperience}</h2>
+            <p className="mt-2 text-muted-foreground">{t.contact.shareExperienceSubtitle}</p>
+          </div>
+          <ReviewForm />
         </div>
       </section>
 

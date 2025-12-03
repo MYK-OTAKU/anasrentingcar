@@ -17,8 +17,8 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="YR Location" width={40} height={40} className="h-10 w-auto" />
-              <span className="text-lg font-bold text-foreground">YR Location</span>
+              <Image src="/logo.png" alt="YR Car Location" width={40} height={40} className="h-10 w-auto" />
+              <span className="text-lg font-bold text-foreground">YR Car Location</span>
             </Link>
             <p className="text-sm text-muted-foreground">{t.footer.description}</p>
             <a
@@ -61,12 +61,12 @@ export function Footer() {
 
           {/* Services */}
           <div>
-            <h3 className="mb-4 text-sm font-semibold text-foreground">Nos services</h3>
+            <h3 className="mb-4 text-sm font-semibold text-foreground">{t.footer.services}</h3>
             <ul className="space-y-2">
-              <li className="text-sm text-muted-foreground">Location courte durée</li>
-              <li className="text-sm text-muted-foreground">Location longue durée</li>
-              <li className="text-sm text-muted-foreground">Location utilitaire</li>
-              <li className="text-sm text-muted-foreground">Livraison aéroport</li>
+              <li className="text-sm text-muted-foreground">{t.footer.shortTerm}</li>
+              <li className="text-sm text-muted-foreground">{t.footer.longTerm}</li>
+              <li className="text-sm text-muted-foreground">{t.footer.utility}</li>
+              <li className="text-sm text-muted-foreground">{t.footer.airportDelivery}</li>
             </ul>
           </div>
 
@@ -95,11 +95,11 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Clock className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <Clock className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                 <span className="text-sm text-muted-foreground">
-                  Lun - Sam: 8h - 19h
+                  {t.footer.hours}
                   <br />
-                  Dim: 9h - 17h
+                  {t.footer.hoursSunday}
                 </span>
               </li>
             </ul>
@@ -110,17 +110,17 @@ export function Footer() {
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} YR Location. {t.footer.rights}
+              © {new Date().getFullYear()} YR Car Location. {t.footer.rights}
             </p>
             <div className="flex gap-6">
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-                Mentions légales
+                {t.footer.legal}
               </Link>
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-                Politique de confidentialité
+                {t.footer.privacy}
               </Link>
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
-                CGV
+                {t.footer.terms}
               </Link>
             </div>
           </div>

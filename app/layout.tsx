@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata, Viewport } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { ThemeProvider } from "@/components/theme-provider"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -9,19 +10,41 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: {
-    default: "YR Location - Location de voitures",
-    template: "%s | YR Location",
+    default: "YR Car Location - Location de voitures au Maroc | Prix compétitifs",
+    template: "%s | YR Car Location",
   },
   description:
-    "Louez votre voiture en toute simplicité avec YR Location. Large gamme de véhicules, prix compétitifs et service client de qualité.",
-  keywords: ["location voiture", "rental car", "location véhicule", "YR Location"],
-  authors: [{ name: "YR Location" }],
+    "Location de voiture au Maroc avec YR Car Location. Véhicules récents à prix compétitifs. Service 24/7, assurance complète. Casablanca, Rabat, Marrakech. Réservez maintenant!",
+  keywords: [
+    "location voiture Maroc",
+    "location voiture Casablanca",
+    "rental car Morocco",
+    "location véhicule pas cher",
+    "YR Car Location",
+    "location voiture aéroport",
+    "car rental Casablanca",
+    "location longue durée Maroc",
+    "voiture de location qualité",
+    "location auto Maroc prix",
+  ],
+  authors: [{ name: "YR Car Location" }],
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    siteName: "YR Location",
+    siteName: "YR Car Location",
+    title: "YR Car Location - Location de voitures au Maroc",
+    description: "Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7. Réservez maintenant!",
   },
-    generator: 'v0.app'
+  generator: 'v0.app',
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-light-32x32.png', media: '(prefers-color-scheme: light)' },
+      { url: '/icon-dark-32x32.png', media: '(prefers-color-scheme: dark)' },
+    ],
+    apple: '/apple-icon.png',
+  },
 }
 
 export const viewport: Viewport = {
@@ -36,9 +59,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" suppressHydrationWarning>
       <body className="font-sans antialiased">
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

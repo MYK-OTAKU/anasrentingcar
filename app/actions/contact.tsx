@@ -25,9 +25,11 @@ export async function submitContactForm(data: ContactFormData) {
 
     if (process.env.RESEND_API_KEY) {
       const resend = new Resend(process.env.RESEND_API_KEY)
+      const recipientEmail = process.env.CONTACT_EMAIL || "m2017koita@gmail.com"
+      
       await resend.emails.send({
         from: "YR Location <onboarding@resend.dev>",
-        to: ["m2017koita@gmail.com"],
+        to: [recipientEmail],
         subject: `Nouveau message de contact - ${data.subject}`,
         html: `
           <h2>Nouveau message de contact</h2>
@@ -40,6 +42,7 @@ export async function submitContactForm(data: ContactFormData) {
           ${data.car_id ? `<p><strong>Véhicule ID:</strong> ${data.car_id}</p>` : ""}
         `,
       })
+      console.log(`Email sent to ${recipientEmail}`)
     } else {
       console.log("[v0] RESEND_API_KEY not set, skipping email")
     }

@@ -19,8 +19,14 @@ export default async function AdminDashboardLayout({
     redirect("/admin/login")
   }
 
-  const isAdmin = user.user_metadata?.is_admin === true
-  if (!isAdmin) {
+  // Vérifier si l'utilisateur est dans la table admins
+  const { data: adminData, error: adminError } = await supabase
+    .from("admins")
+    .select("id, email")
+    .eq("id", user.id)
+    .single()
+
+  if (adminError || !adminData) {
     redirect("/admin/login")
   }
 

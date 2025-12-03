@@ -1,5 +1,6 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
+import { isAdminEmail } from "@/lib/admin"
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -37,9 +38,21 @@ export async function updateSession(request: NextRequest) {
       return NextResponse.redirect(url)
     }
 
-    // Check if user is admin
-    const isAdmin = user.user_metadata?.is_admin === true
-    if (!isAdmin) {
+    // Check 1: Email in ADMIN_EMAILS list
+    if (!isAdminEmail(user.email || "")) {
+      const url = request.nextUrl.clone()
+      url.pathname = "/admin/login"
+      return NextResponse.redirect(url)
+    }
+
+    // Check 2: User in admins table
+    const { data: adminData } = await supabase
+      .from("admins")
+      .select("id")
+      .eq("id", user.id)
+      .single()
+
+    if (!adminData) {
       const url = request.nextUrl.clone()
       url.pathname = "/admin/login"
       return NextResponse.redirect(url)

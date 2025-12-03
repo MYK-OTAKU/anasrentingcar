@@ -1,4 +1,4 @@
-# YR Location - Roadmap
+# YR Car - Roadmap
 
 ## V1.0 - MVP (Current)
 - [x] Project structure setup

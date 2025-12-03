@@ -10,38 +10,36 @@ export function ReservationSection() {
   const features = [
     {
       icon: MapPin,
-      title: t.locale === "fr" ? "Plusieurs agences" : "Multiple locations",
-      description: t.locale === "fr" ? "Casablanca, Rabat, Marrakech" : "Casablanca, Rabat, Marrakech",
+      title: t.reservation.features.multipleLocations.title,
+      description: t.reservation.features.multipleLocations.description,
     },
     {
       icon: CalendarCheck,
-      title: t.locale === "fr" ? "Réservation flexible" : "Flexible booking",
-      description: t.locale === "fr" ? "Annulation gratuite 24h avant" : "Free cancellation 24h before",
+      title: t.reservation.features.flexibleBooking.title,
+      description: t.reservation.features.flexibleBooking.description,
     },
     {
       icon: Clock,
-      title: t.locale === "fr" ? "Disponible 24/7" : "Available 24/7",
-      description: t.locale === "fr" ? "Service aéroport inclus" : "Airport service included",
+      title: t.reservation.features.available247.title,
+      description: t.reservation.features.available247.description,
     },
     {
       icon: Shield,
-      title: t.locale === "fr" ? "Assurance complète" : "Full insurance",
-      description: t.locale === "fr" ? "Tous risques incluse" : "All risks included",
+      title: t.reservation.features.fullInsurance.title,
+      description: t.reservation.features.fullInsurance.description,
     },
   ]
 
   return (
-    <section className="relative bg-muted/50 py-12 lg:py-16">
+    <section className="relative py-12 lg:py-16">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         {/* Section header */}
         <div className="mb-8 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-            {t.locale === "fr" ? "Réservez votre véhicule" : "Book your vehicle"}
+            {t.reservation.sectionTitle}
           </h2>
           <p className="mt-2 text-muted-foreground">
-            {t.locale === "fr"
-              ? "Remplissez le formulaire ci-dessous pour une réservation rapide"
-              : "Fill out the form below for a quick reservation"}
+            {t.reservation.sectionSubtitle}
           </p>
         </div>
 

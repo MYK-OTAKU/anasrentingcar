@@ -1,8 +1,8 @@
-# YR Location - Architecture
+# YR Car - Architecture
 
 ## Overview
 
-YR Location is a car rental agency website built with:
+YR Car is a car rental agency website built with:
 - **Frontend**: Next.js 16 (App Router) + TypeScript
 - **Styling**: Tailwind CSS v4
 - **Database**: Supabase (PostgreSQL)

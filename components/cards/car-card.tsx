@@ -43,17 +43,19 @@ export function CarCard({ car }: CarCardProps) {
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   return (
-    <Card className="group overflow-hidden transition-shadow hover:shadow-lg">
+    <Card className="group overflow-hidden transition-all hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 duration-300">
       <div className="relative aspect-[4/3] overflow-hidden">
         <Image
           src={car.image_url || "/placeholder.svg"}
           alt={`${car.brand} ${car.model}`}
           fill
-          className="object-cover transition-transform duration-300 group-hover:scale-105"
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
         />
-        <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground">
+        <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground shadow-lg animate-fade-in">
           {categoryLabels[car.category]}
         </Badge>
+        {/* Overlay doré au hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
       <CardContent className="p-4">
         <div className="mb-2">

@@ -2,17 +2,19 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useRef } from "react"
 import { useRouter } from "next/navigation"
 import type { Car } from "@/lib/types"
-import { createClient } from "@/lib/supabase/client"
+import { createCar, updateCar, uploadCarImage } from "@/app/actions/cars"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Switch } from "@/components/ui/switch"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Loader2 } from "lucide-react"
+import { Loader2, Upload, X, ArrowLeft } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
 
 interface CarFormProps {
   car?: Car
@@ -21,7 +23,36 @@ interface CarFormProps {
 export function CarForm({ car }: CarFormProps) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
+  const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [imageUrl, setImageUrl] = useState(car?.image_url || "")
+  const [available, setAvailable] = useState(car?.available ?? true)
+  const fileInputRef = useRef<HTMLInputElement>(null)
+
+  const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0]
+    if (!file) return
+
+    setIsUploading(true)
+    setError(null)
+
+    try {
+      const formData = new FormData()
+      formData.append("file", file)
+
+      const result = await uploadCarImage(formData)
+
+      if (result.error) {
+        setError(result.error)
+      } else if (result.url) {
+        setImageUrl(result.url)
+      }
+    } catch (err) {
+      setError("Erreur lors de l'upload de l'image")
+    } finally {
+      setIsUploading(false)
+    }
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -29,33 +60,31 @@ export function CarForm({ car }: CarFormProps) {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
-    const data = {
-      brand: formData.get("brand") as string,
-      model: formData.get("model") as string,
-      category: formData.get("category") as string,
-      seats: Number.parseInt(formData.get("seats") as string),
-      transmission: formData.get("transmission") as string,
-      fuel_type: formData.get("fuel_type") as string,
-      price_per_day: Number.parseFloat(formData.get("price_per_day") as string),
-      description: formData.get("description") as string,
-      image_url: formData.get("image_url") as string,
-      available: formData.get("available") === "on",
-    }
+    formData.set("image_url", imageUrl)
+    formData.set("available", available.toString())
 
-    const supabase = createClient()
+    console.log("Form data:", {
+      brand: formData.get("brand"),
+      model: formData.get("model"),
+      image_url: imageUrl,
+      available: available,
+    })
 
     try {
-      if (car) {
-        const { error: updateError } = await supabase.from("cars").update(data).eq("id", car.id)
-        if (updateError) throw updateError
-      } else {
-        const { error: insertError } = await supabase.from("cars").insert(data)
-        if (insertError) throw insertError
-      }
+      const result = car ? await updateCar(car.id, formData) : await createCar(formData)
 
-      router.push("/admin/cars")
-      router.refresh()
+      console.log("Action result:", result)
+
+      if (result.error) {
+        console.error("Error from action:", result.error)
+        setError(result.error)
+      } else {
+        console.log("Success! Redirecting...")
+        router.push("/admin/cars")
+        router.refresh()
+      }
     } catch (err) {
+      console.error("Exception:", err)
       setError(err instanceof Error ? err.message : "Une erreur est survenue")
     } finally {
       setIsLoading(false)
@@ -64,6 +93,14 @@ export function CarForm({ car }: CarFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
+      {/* Bouton retour */}
+      <Link href="/admin/cars">
+        <Button type="button" variant="outline" size="sm">
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Retour à la liste
+        </Button>
+      </Link>
+
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="brand">Marque *</Label>
@@ -126,7 +163,7 @@ export function CarForm({ car }: CarFormProps) {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="price_per_day">Prix par jour (€) *</Label>
+        <Label htmlFor="price_per_day">Prix par jour (DH) *</Label>
         <Input
           id="price_per_day"
           name="price_per_day"
@@ -134,14 +171,63 @@ export function CarForm({ car }: CarFormProps) {
           min="0"
           step="0.01"
           defaultValue={car?.price_per_day}
-          placeholder="35.00"
+          placeholder="350.00"
           required
         />
       </div>
 
+      {/* Section Upload d'image */}
       <div className="space-y-2">
-        <Label htmlFor="image_url">URL de l&apos;image</Label>
-        <Input id="image_url" name="image_url" type="url" defaultValue={car?.image_url} placeholder="https://..." />
+        <Label>Image du véhicule *</Label>
+        <div className="space-y-4">
+          {imageUrl && (
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg border">
+              <Image src={imageUrl} alt="Aperçu" fill className="object-cover" />
+              <Button
+                type="button"
+                variant="destructive"
+                size="icon"
+                className="absolute right-2 top-2"
+                onClick={() => setImageUrl("")}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+
+          <div className="flex gap-2">
+            <input
+              ref={fileInputRef}
+              type="file"
+              accept="image/*"
+              capture="environment"
+              onChange={handleImageUpload}
+              className="hidden"
+            />
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => fileInputRef.current?.click()}
+              disabled={isUploading}
+              className="flex-1"
+            >
+              {isUploading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Upload en cours...
+                </>
+              ) : (
+                <>
+                  <Upload className="mr-2 h-4 w-4" />
+                  {imageUrl ? "Changer l'image" : "Choisir une image"}
+                </>
+              )}
+            </Button>
+          </div>
+          <p className="text-xs text-muted-foreground">
+            Formats acceptés : JPG, PNG, WebP. Taille maximale : 50MB
+          </p>
+        </div>
       </div>
 
       <div className="space-y-2">
@@ -156,14 +242,18 @@ export function CarForm({ car }: CarFormProps) {
       </div>
 
       <div className="flex items-center gap-2">
-        <Switch id="available" name="available" defaultChecked={car?.available ?? true} />
+        <Switch 
+          id="available" 
+          checked={available}
+          onCheckedChange={setAvailable}
+        />
         <Label htmlFor="available">Véhicule disponible à la location</Label>
       </div>
 
       {error && <p className="text-sm text-destructive">{error}</p>}
 
       <div className="flex gap-4">
-        <Button type="submit" disabled={isLoading}>
+        <Button type="submit" disabled={isLoading || !imageUrl}>
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

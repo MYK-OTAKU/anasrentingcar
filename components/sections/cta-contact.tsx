@@ -1,6 +1,11 @@
+"use client"
+
 import { ContactForm } from "@/components/forms/contact-form"
+import { useI18n } from "@/lib/i18n/context"
 
 export function CtaContact() {
+  const { t } = useI18n()
+
   return (
     <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
@@ -8,16 +13,15 @@ export function CtaContact() {
           <div className="grid lg:grid-cols-2">
             <div className="p-8 lg:p-12">
               <h2 className="text-balance text-3xl font-bold text-foreground sm:text-4xl">
-                Prêt à réserver votre véhicule ?
+                {t.cta.title}
               </h2>
               <p className="mt-4 text-pretty text-muted-foreground">
-                Contactez-nous dès maintenant pour obtenir un devis personnalisé ou réserver votre voiture. Notre équipe
-                vous répond sous 24h.
+                {t.cta.subtitle}
               </p>
               <ul className="mt-6 space-y-2 text-sm text-muted-foreground">
-                <li>Réponse garantie sous 24h</li>
-                <li>Devis personnalisé gratuit</li>
-                <li>Conseils sur le véhicule adapté à vos besoins</li>
+                <li>{t.cta.features.response}</li>
+                <li>{t.cta.features.quote}</li>
+                <li>{t.cta.features.advice}</li>
               </ul>
             </div>
             <div className="bg-card p-8 lg:p-12">

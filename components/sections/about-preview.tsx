@@ -1,44 +1,41 @@
+"use client"
+
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Shield, Clock, Award } from "lucide-react"
-
-const features = [
-  {
-    icon: Shield,
-    title: "Sécurité garantie",
-    description: "Tous nos véhicules sont régulièrement contrôlés et entretenus.",
-  },
-  {
-    icon: Clock,
-    title: "Service 24h/24",
-    description: "Une assistance disponible à tout moment pour votre tranquillité.",
-  },
-  {
-    icon: Award,
-    title: "Qualité premium",
-    description: "Une flotte récente et variée pour répondre à tous vos besoins.",
-  },
-]
+import { useI18n } from "@/lib/i18n/context"
 
 export function AboutPreview() {
+  const { t } = useI18n()
+
+  const features = [
+    {
+      icon: Shield,
+      title: t.whyChoose.security.title,
+      description: t.whyChoose.security.description,
+    },
+    {
+      icon: Clock,
+      title: t.whyChoose.service247.title,
+      description: t.whyChoose.service247.description,
+    },
+    {
+      icon: Award,
+      title: t.whyChoose.premium.title,
+      description: t.whyChoose.premium.description,
+    },
+  ]
+
   return (
-    <section className="bg-muted/30 py-16 lg:py-24">
+    <section className="py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <h2 className="text-balance text-3xl font-bold text-foreground sm:text-4xl">
-              Votre partenaire de confiance depuis plus de 10 ans
-            </h2>
-            <p className="mt-4 text-pretty text-muted-foreground">
-              YR Location est une agence de location de voitures implantée au coeur de Paris. Notre mission : vous
-              offrir une expérience de location simple, transparente et au meilleur rapport qualité-prix.
-            </p>
-            <p className="mt-4 text-muted-foreground">
-              Que vous soyez un particulier, un professionnel ou un touriste, nous avons le véhicule adapté à vos
-              besoins. Notre équipe passionnée est à votre écoute pour vous accompagner dans votre choix.
-            </p>
+            <h2 className="text-balance text-3xl font-bold text-foreground sm:text-4xl">{t.aboutPreview.title}</h2>
+            <p className="mt-4 text-pretty text-muted-foreground">{t.aboutPreview.description1}</p>
+            <p className="mt-4 text-muted-foreground">{t.aboutPreview.description2}</p>
             <Button className="mt-6 bg-transparent" variant="outline" asChild>
-              <Link href="/about">En savoir plus sur nous</Link>
+              <Link href="/about">{t.aboutPreview.learnMore}</Link>
             </Button>
           </div>
           <div className="grid gap-6 sm:grid-cols-1">

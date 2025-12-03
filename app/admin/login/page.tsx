@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/client"
+import { isAdminEmail, getAdminEmails } from "@/lib/admin"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,6 +20,9 @@ export default function AdminLoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const router = useRouter()
+
+  // Note: On ne vérifie plus si déjà connecté au chargement
+  // Si l'utilisateur est admin, il sera redirigé après login
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -33,18 +37,51 @@ export default function AdminLoginPage() {
         password,
       })
 
-      if (authError) throw authError
-
-      // Check if user is admin
-      const isAdmin = data.user?.user_metadata?.is_admin === true
-      if (!isAdmin) {
-        await supabase.auth.signOut()
-        throw new Error("Accès non autorisé. Vous devez être administrateur.")
+      if (authError) {
+        console.error('Auth error:', authError)
+        throw new Error(authError.message === 'Invalid login credentials' 
+          ? 'Email ou mot de passe incorrect' 
+          : authError.message)
       }
 
-      router.push("/admin")
-      router.refresh()
+      console.log('User authenticated:', data.user?.email)
+
+      // Vérification 1 : Email dans la liste autorisée (ADMIN_EMAILS)
+      const userEmail = data.user?.email || ""
+      const isAuthorized = isAdminEmail(userEmail)
+      console.log('Checking authorization for:', userEmail)
+      console.log('Is authorized:', isAuthorized)
+      console.log('Admin emails list:', getAdminEmails())
+      
+      if (!isAuthorized) {
+        console.error('Email not in ADMIN_EMAILS list')
+        await supabase.auth.signOut()
+        throw new Error("Accès non autorisé. Votre email n'est pas dans la liste des administrateurs.")
+      }
+
+      console.log('Email authorized in ADMIN_EMAILS')
+
+      // Vérification 2 : Utilisateur dans la table admins
+      const { data: adminData, error: adminError } = await supabase
+        .from('admins')
+        .select('id, email')
+        .eq('id', data.user?.id)
+        .single()
+
+      console.log('Admin check result:', adminData)
+
+      if (adminError || !adminData) {
+        console.error('Admin check failed:', adminError)
+        await supabase.auth.signOut()
+        throw new Error("Accès non autorisé. Vous devez être enregistré comme administrateur.")
+      }
+
+      console.log('Admin verified:', adminData.email)
+      // Utiliser window.location pour forcer un rechargement complet
+      // et permettre au serveur de récupérer la nouvelle session
+      window.location.href = "/admin"
     } catch (err) {
+      console.error('Login error:', err)
       setError(err instanceof Error ? err.message : "Une erreur est survenue")
     } finally {
       setIsLoading(false)
@@ -56,8 +93,8 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center gap-2">
-            <Image src="/logo.png" alt="YR Location" width={48} height={48} className="h-12 w-auto" />
-            <span className="text-xl font-bold text-foreground">YR Location</span>
+            <Image src="/logo.png" alt="YR Car Location" width={48} height={48} className="h-12 w-auto" />
+            <span className="text-xl font-bold text-foreground">YR Car Location</span>
           </Link>
         </div>
 

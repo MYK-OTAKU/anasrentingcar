@@ -4,7 +4,7 @@ import type { Metadata } from "next"
 export const metadata: Metadata = {
   title: {
     default: "Administration",
-    template: "%s | Admin YR Location",
+    template: "%s | Admin YR Car Location",
   },
   robots: "noindex, nofollow",
 }
