@@ -10,70 +10,100 @@ export function HeroSection() {
   const { t } = useI18n()
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative h-[calc(100vh-4rem)] min-h-[500px] max-h-[800px] overflow-hidden">
+      {/* Background with overlay */}
       <div className="absolute inset-0">
         <Image
-          src="/yellow-chevrolet-camaro-with-black-racing-stripes.jpg"
-          alt="Chevrolet Camaro jaune"
+          src="/hero_background_ana0.png"
+          alt="Luxury car"
           fill
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
+        {/* Stronger dark overlay for better text visibility */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/75 to-black/70" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-6 sm:py-12 lg:px-8 lg:py-12">
-        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-          {/* Left side - Text content */}
-          <div className="flex flex-col justify-center animate-fade-in-up">
-            <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl animate-slide-in-left">
-              {t.hero.title} <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent animate-pulse-glow">{t.hero.titleHighlight}</span>
-            </h1>
-            <p className="mt-4 text-pretty text-base text-muted-foreground lg:text-lg animate-fade-in [animation-delay:200ms]">{t.hero.subtitle}</p>
-            <ul className="mt-6 space-y-3">
-              {t.hero.features.map((item, index) => (
-                <li 
-                  key={item} 
-                  className="flex items-center gap-2 animate-fade-in-left"
-                  style={{ animationDelay: `${300 + index * 100}ms` }}
+      {/* Content */}
+      <div className="relative mx-auto max-w-7xl px-4 h-full flex items-center justify-center">
+        <div className="max-w-2xl text-center">
+          {/* 5-Star Rating Badge - Improved visibility */}
+          <div className="mb-6 flex flex-col items-center justify-center gap-3 animate-fade-in">
+            <div className="flex gap-1">
+              {[...Array(5)].map((_, i) => (
+                <svg
+                  key={i}
+                  className="h-6 w-6 text-primary drop-shadow-[0_2px_4px_rgba(255,0,0,0.5)]"
+                  style={{ animationDelay: `${i * 100}ms` }}
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
                 >
-                  <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary animate-scale-in" />
-                  <span className="text-sm text-foreground/80 lg:text-base">{item}</span>
-                </li>
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
               ))}
-            </ul>
-            <div className="mt-8 flex flex-wrap gap-4 animate-fade-in-up [animation-delay:600ms]">
-              <Button size="lg" asChild className="group hover:scale-105 transition-transform">
-                <Link href="/contact">
-                  {t.hero.viewVehicles}
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </Button>
-              <Button size="lg" variant="outline" asChild className="hover:scale-105 transition-transform">
-                <Link href="/services">{t.hero.learnMore}</Link>
-              </Button>
             </div>
-            {/* Price badge */}
-            <div className="mt-8 inline-flex w-fit rounded-xl bg-card/80 backdrop-blur-sm p-4 shadow-lg animate-fade-in-up [animation-delay:700ms] hover:shadow-xl hover:shadow-primary/20 transition-all">
-              <div>
-                <p className="text-sm text-muted-foreground">{t.hero.startingFrom}</p>
-                <p className="text-2xl font-bold text-primary">
-                  250 DH
-                  <span className="text-base font-normal text-muted-foreground">{t.hero.perDay}</span>
-                </p>
-              </div>
-            </div>
+            <span className="text-sm font-bold text-white bg-primary/20 px-4 py-1.5 rounded-full border border-primary/30 backdrop-blur-sm">
+              Excellence Garantie
+            </span>
           </div>
 
-          <div className="relative hidden lg:flex items-center justify-center">
-            <div className="relative h-80 w-full lg:h-[400px] animate-slide-in-right">
-              <Image
-                src="/logo.png"
-                alt="Chevrolet Camaro jaune"
-                fill
-                className="object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-700"
-                priority
-              />
+          {/* Main Heading - Reduced size */}
+          <h1 className="text-balance text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl animate-fade-in-up drop-shadow-lg">
+            {t.hero.title}{" "}
+            <span className="bg-gradient-to-r from-primary via-red-400 to-primary bg-clip-text text-transparent">
+              {t.hero.titleHighlight}
+            </span>
+          </h1>
+
+          {/* Subtitle - Improved visibility */}
+          <p className="mt-4 text-pretty text-base text-gray-200 lg:text-lg animate-fade-in [animation-delay:200ms] drop-shadow-md">
+            {t.hero.subtitle}
+          </p>
+
+          {/* Features List - Centered and compact */}
+          <ul className="mt-6 space-y-2 inline-block text-left">
+            {t.hero.features.map((item, index) => (
+              <li
+                key={item}
+                className="flex items-center gap-2 animate-fade-in-left"
+                style={{ animationDelay: `${300 + index * 100}ms` }}
+              >
+                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary drop-shadow-[0_2px_4px_rgba(255,0,0,0.5)]" />
+                <span className="text-sm text-white/95 lg:text-base drop-shadow-md">{item}</span>
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA Buttons */}
+          <div className="mt-8 flex flex-wrap gap-3 justify-center animate-fade-in-up [animation-delay:600ms]">
+            <Button
+              size="default"
+              asChild
+              className="group bg-primary hover:bg-primary/90 text-white red-glow hover:scale-105 transition-all shadow-xl"
+            >
+              <Link href="/contact">
+                {t.hero.viewVehicles}
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </Button>
+            <Button
+              size="default"
+              variant="outline"
+              asChild
+              className="border-white/30 bg-white/10 text-white hover:bg-white/20 hover:scale-105 transition-all backdrop-blur-sm"
+            >
+              <Link href="/services">{t.hero.learnMore}</Link>
+            </Button>
+          </div>
+
+          {/* Price Badge - Compact */}
+          <div className="mt-6 inline-flex rounded-xl bg-black/50 backdrop-blur-md border border-primary/30 px-5 py-3 shadow-2xl animate-fade-in-up [animation-delay:700ms]">
+            <div>
+              <p className="text-xs font-medium text-gray-300">{t.hero.startingFrom}</p>
+              <p className="mt-0.5 text-2xl font-bold text-primary">
+                250 DH
+                <span className="ml-2 text-sm font-normal text-gray-300">{t.hero.perDay}</span>
+              </p>
             </div>
           </div>
         </div>

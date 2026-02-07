@@ -8,6 +8,7 @@ import { useI18n } from "@/lib/i18n/context"
 import { createClient } from "@/lib/supabase/client"
 import type { Car } from "@/lib/types"
 import { Loader2 } from "lucide-react"
+import Image from "next/image"
 
 const CARS_PER_PAGE = 9
 
@@ -68,12 +69,22 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-muted/30 py-12 lg:py-16">
-        <div className="mx-auto max-w-7xl px-4 lg:px-8">
-          <h1 className="text-balance text-4xl font-bold text-foreground sm:text-5xl">
+      <section className="relative py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/hero_background_anas1.png"
+            alt="Showroom Rent Car Anas"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/70" />
+        </div>
+        <div className="relative mx-auto max-w-7xl px-4 lg:px-8 text-center">
+          <h1 className="text-balance text-4xl font-bold text-white sm:text-5xl drop-shadow-lg">
             {t.services.title} <span className="text-primary">{t.services.titleHighlight}</span>
           </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{t.services.subtitle}</p>
+          <p className="mt-4 mx-auto max-w-2xl text-lg text-gray-200 drop-shadow-md">{t.services.subtitle}</p>
         </div>
       </section>
 
@@ -81,7 +92,7 @@ export default function ServicesPage() {
       <section className="py-12 lg:py-16">
         <div className="mx-auto max-w-7xl px-4 lg:px-8">
           <CarsFilter onFilterChange={setFilters} />
-          
+
           {loading ? (
             <div className="mt-8 flex justify-center py-12">
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
@@ -93,11 +104,11 @@ export default function ServicesPage() {
                   <CarCard key={car.id} car={car} />
                 ))}
               </div>
-              
+
               {filteredCars.length === 0 && (
                 <div className="mt-8 text-center text-muted-foreground">{t.services.noResults}</div>
               )}
-              
+
               {hasMore && (
                 <div className="mt-12 flex justify-center">
                   <Button

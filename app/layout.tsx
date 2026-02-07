@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next"
 import { Inter, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ScrollToTop } from "@/components/scroll-to-top"
 import "./globals.css"
 
 const _inter = Inter({ subsets: ["latin"] })
@@ -96,7 +97,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#5D7CA6", // Bleu Acier - Couleur principale de la marque
+  themeColor: "#FF0000", // Rouge Anas - Couleur principale de la marque
   width: "device-width",
   initialScale: 1,
 }
@@ -116,6 +117,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <ScrollToTop />
         </ThemeProvider>
         <Analytics />
       </body>

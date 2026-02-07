@@ -39,8 +39,8 @@ export default function AdminLoginPage() {
 
       if (authError) {
         console.error('Auth error:', authError)
-        throw new Error(authError.message === 'Invalid login credentials' 
-          ? 'Email ou mot de passe incorrect' 
+        throw new Error(authError.message === 'Invalid login credentials'
+          ? 'Email ou mot de passe incorrect'
           : authError.message)
       }
 
@@ -52,7 +52,7 @@ export default function AdminLoginPage() {
       console.log('Checking authorization for:', userEmail)
       console.log('Is authorized:', isAuthorized)
       console.log('Admin emails list:', getAdminEmails())
-      
+
       if (!isAuthorized) {
         console.error('Email not in ADMIN_EMAILS list')
         await supabase.auth.signOut()
@@ -62,18 +62,31 @@ export default function AdminLoginPage() {
       console.log('Email authorized in ADMIN_EMAILS')
 
       // Vérification 2 : Utilisateur dans la table admins
+      console.log('Checking admin table for user ID:', data.user?.id)
+
       const { data: adminData, error: adminError } = await supabase
         .from('admins')
         .select('id, email')
         .eq('id', data.user?.id)
         .single()
 
-      console.log('Admin check result:', adminData)
+      console.log('Admin check result:', { adminData, adminError })
+      console.log('Admin error details:', adminError)
 
-      if (adminError || !adminData) {
-        console.error('Admin check failed:', adminError)
+      // Vérifier si c'est une vraie erreur (pas juste un objet vide)
+      const hasRealError = adminError && (adminError.message || adminError.code || adminError.details)
+
+      if (hasRealError) {
+        console.error('Database error when checking admin:', adminError)
         await supabase.auth.signOut()
-        throw new Error("Accès non autorisé. Vous devez être enregistré comme administrateur.")
+        throw new Error(`Erreur de base de données: ${adminError.message || 'Vérifiez les RLS policies'}`)
+      }
+
+      if (!adminData) {
+        console.error('Admin record not found in admins table')
+        console.log('User ID being searched:', data.user?.id)
+        await supabase.auth.signOut()
+        throw new Error("Accès non autorisé. Vous devez être enregistré comme administrateur dans la table admins.")
       }
 
       console.log('Admin verified:', adminData.email)

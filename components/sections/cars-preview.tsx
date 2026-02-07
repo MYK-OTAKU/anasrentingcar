@@ -1,16 +1,54 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CarCard } from "@/components/cards/car-card"
-import { mockCars } from "@/lib/mock-data"
 import { ArrowRight } from "lucide-react"
 import { useI18n } from "@/lib/i18n/context"
+import { createClient } from "@/lib/supabase/client"
+import type { Car } from "@/lib/types"
 
 export function CarsPreview() {
   const { t } = useI18n()
-  // Show first 3 cars for preview
-  const previewCars = mockCars.slice(0, 3)
+  const [cars, setCars] = useState<Car[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function fetchCars() {
+      try {
+        const supabase = createClient()
+        const { data, error } = await supabase
+          .from('cars')
+          .select('*')
+          .eq('available', true)
+          .limit(3)
+          .order('created_at', { ascending: false })
+
+        if (error) {
+          console.error('Error fetching cars:', error)
+        } else {
+          setCars(data || [])
+        }
+      } catch (err) {
+        console.error('Failed to fetch cars:', err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCars()
+  }, [])
+
+  if (loading) {
+    return (
+      <section className="py-16 lg:py-24">
+        <div className="mx-auto max-w-7xl px-4 lg:px-8">
+          <div className="text-center text-muted-foreground">Chargement des véhicules...</div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section className="py-16 lg:py-24">
@@ -30,7 +68,7 @@ export function CarsPreview() {
           </Button>
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {previewCars.map((car) => (
+          {cars.map((car) => (
             <CarCard key={car.id} car={car} />
           ))}
         </div>

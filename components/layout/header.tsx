@@ -49,11 +49,11 @@ export function Header() {
           <ThemeToggle />
           <LanguageSwitcher />
           <a
-            href="tel:+212600000000"
+            href="tel:+212638083689"
             className="flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             <Phone className="h-4 w-4" />
-            +212 6 00 00 00 00
+            06 38 08 36 89
           </a>
           <Button asChild>
             <Link href="/contact">{t.nav.reserve}</Link>
