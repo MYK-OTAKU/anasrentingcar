@@ -4,100 +4,113 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Thème clair - Gris doux avec accents dorés */
-  --background: oklch(0.96 0.005 75); /* Gris très clair, pas blanc pur */
-  --foreground: oklch(0.2 0.02 60);
+  /* Thème clair - Fraîcheur, clarté et lisibilité maximale */
+  /* Arrière-plan principal : Blanc Pur (#FFFFFF) */
+  --background: oklch(1 0 0);
+  /* Texte principal : Gris Foncé (#1F2937) */
+  --foreground: oklch(0.25 0.01 250);
+  /* Cartes : Blanc pur pour se détacher du fond secondaire */
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 60);
+  --card-foreground: oklch(0.25 0.01 250);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 60);
-  /* Primary: warm orange from logo */
-  --primary: oklch(0.75 0.18 55);
+  --popover-foreground: oklch(0.25 0.01 250);
+  /* Primary: Bleu Acier (#5D7CA6) - Couleur marque pour titres, icônes, bordures */
+  --primary: oklch(0.55 0.05 250);
   --primary-foreground: oklch(1 0 0);
-  /* Secondary: soft warm gray */
-  --secondary: oklch(0.96 0.01 80);
-  --secondary-foreground: oklch(0.25 0.02 60);
-  /* Muted: warm off-white */
-  --muted: oklch(0.93 0.01 75); /* Muted plus foncé pour sections */
-  --muted-foreground: oklch(0.5 0.02 60);
-  /* Accent: golden yellow from logo */
-  --accent: oklch(0.85 0.17 85);
-  --accent-foreground: oklch(0.2 0.02 60);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.88 0.01 75);
-  --input: oklch(0.92 0.01 80);
-  --ring: oklch(0.75 0.18 55);
-  --chart-1: oklch(0.75 0.18 55);
-  --chart-2: oklch(0.85 0.17 85);
-  --chart-3: oklch(0.65 0.15 45);
-  --chart-4: oklch(0.55 0.1 60);
-  --chart-5: oklch(0.45 0.08 70);
+  /* Secondary: Arrière-plan secondaire - Gris Nuage (#F3F4F6) */
+  --secondary: oklch(0.96 0.002 250);
+  --secondary-foreground: oklch(0.25 0.01 250);
+  /* Secondary Red: Rouge Vif (#E02F2F) - Couleur secondaire rouge pour variantes */
+  --secondary-red: oklch(0.55 0.20 25);
+  --secondary-red-foreground: oklch(1 0 0);
+  /* Muted: Gris Nuage pour sections */
+  --muted: oklch(0.96 0.002 250);
+  /* Texte secondaire : Gris moyen (#6B7280) */
+  --muted-foreground: oklch(0.50 0.01 250);
+  /* Accent: Rouge Vif (#E02F2F) - Boutons d'action, badges */
+  --accent: oklch(0.55 0.20 25);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.55 0.20 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.002 250);
+  --input: oklch(0.96 0.002 250);
+  --ring: oklch(0.55 0.05 250);
+  --chart-1: oklch(0.55 0.05 250);
+  --chart-2: oklch(0.55 0.20 25);
+  --chart-3: oklch(0.50 0.01 250);
+  --chart-4: oklch(0.45 0.01 250);
+  --chart-5: oklch(0.40 0.01 250);
   --radius: 0.625rem;
-  --sidebar: oklch(0.98 0.005 90);
-  --sidebar-foreground: oklch(0.2 0.02 60);
-  --sidebar-primary: oklch(0.75 0.18 55);
+  --sidebar: oklch(0.98 0.002 250);
+  --sidebar-foreground: oklch(0.25 0.01 250);
+  --sidebar-primary: oklch(0.55 0.05 250);
   --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.95 0.02 80);
-  --sidebar-accent-foreground: oklch(0.25 0.02 60);
-  --sidebar-border: oklch(0.9 0.01 80);
-  --sidebar-ring: oklch(0.75 0.18 55);
+  --sidebar-accent: oklch(0.96 0.002 250);
+  --sidebar-accent-foreground: oklch(0.25 0.01 250);
+  --sidebar-border: oklch(0.92 0.002 250);
+  --sidebar-ring: oklch(0.55 0.05 250);
 }
 
 .dark {
-  /* Fond gris très sombre, pas noir pur - doux pour les yeux */
-  --background: oklch(0.18 0.01 60);
-  --foreground: oklch(0.98 0.01 85);
+  /* Thème sombre - Élégance, confort visuel nocturne et aspect Premium */
+  /* Arrière-plan principal : Noir Profond (#121212) */
+  --background: oklch(0.15 0 0);
+  /* Texte principal : Blanc Cassé (#F9FAFB) */
+  --foreground: oklch(0.98 0.002 250);
   
-  /* Cartes avec fond légèrement plus clair */
-  --card: oklch(0.22 0.015 60);
-  --card-foreground: oklch(0.98 0.01 85);
+  /* Cartes : Gris Anthracite (#1F2937) pour se détacher du fond */
+  --card: oklch(0.25 0.01 250);
+  --card-foreground: oklch(0.98 0.002 250);
   
-  --popover: oklch(0.22 0.015 60);
-  --popover-foreground: oklch(0.98 0.01 85);
+  --popover: oklch(0.25 0.01 250);
+  --popover-foreground: oklch(0.98 0.002 250);
   
-  /* Doré vibrant pour primary */
-  --primary: oklch(0.82 0.15 75);
-  --primary-foreground: oklch(0.18 0.01 60);
+  /* Primary: Bleu Acier Clair (#7D9CC6) - Éclairci pour lisibilité sur fond noir */
+  --primary: oklch(0.65 0.05 250);
+  --primary-foreground: oklch(0.15 0 0);
   
-  /* Gris-noir pour secondary */
-  --secondary: oklch(0.22 0.01 60);
-  --secondary-foreground: oklch(0.98 0.01 85);
+  /* Secondary: Gris Anthracite */
+  --secondary: oklch(0.25 0.01 250);
+  --secondary-foreground: oklch(0.98 0.002 250);
+  /* Secondary Red: Rouge Néon (#EF4444) - Couleur secondaire rouge pour variantes */
+  --secondary-red: oklch(0.65 0.22 25);
+  --secondary-red-foreground: oklch(0.98 0.002 250);
   
-  /* Muted sombre avec touche dorée */
-  --muted: oklch(0.22 0.01 65);
-  --muted-foreground: oklch(0.65 0.01 75);
+  /* Muted: Gris Anthracite */
+  --muted: oklch(0.25 0.01 250);
+  /* Texte secondaire : Gris argent (#9CA3AF) */
+  --muted-foreground: oklch(0.68 0.01 250);
   
-  /* Accent doré lumineux */
-  --accent: oklch(0.85 0.16 80);
-  --accent-foreground: oklch(0.12 0.01 60);
+  /* Accent: Rouge Néon (#EF4444) - Éclatant pour effet "feux arrière" */
+  --accent: oklch(0.65 0.22 25);
+  --accent-foreground: oklch(0.98 0.002 250);
   
-  --destructive: oklch(0.50 0.20 25);
-  --destructive-foreground: oklch(0.98 0.01 85);
+  --destructive: oklch(0.65 0.22 25);
+  --destructive-foreground: oklch(0.98 0.002 250);
   
   /* Bordures subtiles */
-  --border: oklch(0.25 0.015 65);
-  --input: oklch(0.25 0.015 65);
+  --border: oklch(0.30 0.01 250);
+  --input: oklch(0.30 0.01 250);
   
-  /* Ring doré */
-  --ring: oklch(0.82 0.15 75);
+  /* Ring bleu */
+  --ring: oklch(0.65 0.05 250);
   
-  /* Charts avec palette noir/doré */
-  --chart-1: oklch(0.82 0.15 75);
-  --chart-2: oklch(0.85 0.16 80);
-  --chart-3: oklch(0.70 0.12 70);
-  --chart-4: oklch(0.60 0.10 65);
-  --chart-5: oklch(0.50 0.08 60);
+  /* Charts avec palette bleu/rouge */
+  --chart-1: oklch(0.65 0.05 250);
+  --chart-2: oklch(0.65 0.22 25);
+  --chart-3: oklch(0.68 0.01 250);
+  --chart-4: oklch(0.60 0.01 250);
+  --chart-5: oklch(0.55 0.01 250);
   
   /* Sidebar */
-  --sidebar: oklch(0.20 0.01 60);
-  --sidebar-foreground: oklch(0.98 0.01 85);
-  --sidebar-primary: oklch(0.82 0.15 75);
-  --sidebar-primary-foreground: oklch(0.18 0.01 60);
-  --sidebar-accent: oklch(0.22 0.01 65);
-  --sidebar-accent-foreground: oklch(0.98 0.01 85);
-  --sidebar-border: oklch(0.25 0.015 65);
-  --sidebar-ring: oklch(0.82 0.15 75);
+  --sidebar: oklch(0.20 0.01 250);
+  --sidebar-foreground: oklch(0.98 0.002 250);
+  --sidebar-primary: oklch(0.65 0.05 250);
+  --sidebar-primary-foreground: oklch(0.15 0 0);
+  --sidebar-accent: oklch(0.25 0.01 250);
+  --sidebar-accent-foreground: oklch(0.98 0.002 250);
+  --sidebar-border: oklch(0.30 0.01 250);
+  --sidebar-ring: oklch(0.65 0.05 250);
 }
 
 @theme inline {
@@ -113,6 +126,8 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-red: var(--secondary-red);
+  --color-secondary-red-foreground: var(--secondary-red-foreground);
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
   --color-accent: var(--accent);
@@ -149,31 +164,95 @@
     @apply bg-background text-foreground;
   }
   
-  /* Scrollbar personnalisée en noir et doré */
+  /* Scrollbar personnalisée - Thème clair */
   ::-webkit-scrollbar {
     width: 10px;
   }
   
   ::-webkit-scrollbar-track {
-    background: oklch(0.12 0.01 60);
+    background: oklch(0.96 0.002 250);
   }
   
   ::-webkit-scrollbar-thumb {
-    background: oklch(0.82 0.15 75);
+    background: oklch(0.55 0.05 250);
     border-radius: 5px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    background: oklch(0.85 0.16 80);
+    background: oklch(0.50 0.05 250);
   }
   
-  /* Effet de brillance doré sur les éléments interactifs */
-  .dark .gold-glow {
-    box-shadow: 0 0 20px rgba(218, 165, 32, 0.3);
+  /* Scrollbar personnalisée - Thème sombre */
+  .dark ::-webkit-scrollbar-track {
+    background: oklch(0.15 0 0);
   }
   
-  .dark .gold-glow:hover {
-    box-shadow: 0 0 30px rgba(218, 165, 32, 0.5);
+  .dark ::-webkit-scrollbar-thumb {
+    background: oklch(0.65 0.05 250);
+  }
+  
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.70 0.05 250);
+  }
+  
+  /* Effet de brillance bleu sur les éléments interactifs - Thème clair */
+  .blue-glow {
+    box-shadow: 0 0 20px rgba(93, 124, 166, 0.3);
+  }
+  
+  .blue-glow:hover {
+    box-shadow: 0 0 30px rgba(93, 124, 166, 0.5);
+  }
+  
+  /* Effet de brillance rouge sur les boutons d'action */
+  .red-glow {
+    box-shadow: 0 0 20px rgba(224, 47, 47, 0.3);
+  }
+  
+  .red-glow:hover {
+    box-shadow: 0 0 30px rgba(224, 47, 47, 0.5);
+  }
+  
+  /* Effet de brillance bleu sur les éléments interactifs - Thème sombre */
+  .dark .blue-glow {
+    box-shadow: 0 0 20px rgba(125, 156, 198, 0.4);
+  }
+  
+  .dark .blue-glow:hover {
+    box-shadow: 0 0 30px rgba(125, 156, 198, 0.6);
+  }
+  
+  /* Effet de brillance rouge néon sur les boutons d'action - Thème sombre */
+  .dark .red-glow {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
+  }
+  
+  .dark .red-glow:hover {
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.7);
+  }
+  
+  /* T fantaisiste pour "Tourisme Car" */
+  .fancy-t {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.2em;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform: scale(1.1);
+    margin-right: 2px;
+  }
+  
+  .dark .fancy-t {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
   }
 }
 

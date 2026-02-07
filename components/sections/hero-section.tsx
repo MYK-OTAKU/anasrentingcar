@@ -22,7 +22,7 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/40" />
       </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:py-20 lg:px-8 lg:py-28">
+      <div className="relative mx-auto max-w-7xl px-4 py-6 sm:py-12 lg:px-8 lg:py-12">
         <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* Left side - Text content */}
           <div className="flex flex-col justify-center animate-fade-in-up">

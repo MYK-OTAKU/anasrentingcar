@@ -101,7 +101,7 @@ export const translations = {
     // Review form
     reviewForm: {
       title: "Laissez-nous un avis",
-      description: "Partagez votre expérience avec YR Car Location",
+      description: "Partagez votre expérience avec Tourisme Car Location",
       yourName: "Votre nom",
       namePlaceholder: "Ahmed El Mansouri",
       yourRating: "Votre note",
@@ -185,9 +185,9 @@ export const translations = {
     // About page
     about: {
       title: "À propos de",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       description1:
-        "Fondée en 2014, YR Car est née de la passion d'un entrepreneur pour l'automobile et le service client. Notre mission : rendre la location de voiture accessible, simple et agréable pour tous.",
+        "Fondée en 2014, Tourisme Car est née de la passion d'un entrepreneur pour l'automobile et le service client. Notre mission : rendre la location de voiture accessible, simple et agréable pour tous.",
       description2:
         "Implantée au cœur de Casablanca, notre agence a su se développer en gardant ses valeurs fondamentales : qualité de service, transparence des prix et respect du client. Aujourd'hui, nous sommes fiers de compter plus de 5000 clients satisfaits.",
       stats: {
@@ -294,7 +294,7 @@ export const translations = {
     // Services section (homepage)
     whyChoose: {
       title: "Pourquoi choisir",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       subtitle: "Profitez d'un service de qualité et d'une expérience client exceptionnelle",
       security: {
         title: "Sécurité garantie",
@@ -313,7 +313,7 @@ export const translations = {
     aboutPreview: {
       title: "Votre partenaire de confiance depuis plus de 10 ans",
       description1:
-        "YR Car est une agence de location de voitures implantée au cœur de Casablanca. Notre mission : vous offrir une expérience de location simple, transparente et au meilleur rapport qualité-prix.",
+        "Tourisme Car est une agence de location de voitures implantée au cœur de Casablanca. Notre mission : vous offrir une expérience de location simple, transparente et au meilleur rapport qualité-prix.",
       description2:
         "Que vous soyez un particulier, un professionnel ou un touriste, nous avons le véhicule adapté à vos besoins. Notre équipe passionnée est à votre écoute pour vous accompagner dans votre choix.",
       learnMore: "En savoir plus sur nous",
@@ -449,7 +449,7 @@ export const translations = {
     // Review form
     reviewForm: {
       title: "Leave us a review",
-      description: "Share your experience with YR Car Location",
+      description: "Share your experience with Tourisme Car Location",
       yourName: "Your name",
       namePlaceholder: "John Doe",
       yourRating: "Your rating",
@@ -532,9 +532,9 @@ export const translations = {
     // About page
     about: {
       title: "About",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       description1:
-        "Founded in 2014, YR Car was born from an entrepreneur's passion for automobiles and customer service. Our mission: to make car rental accessible, simple and enjoyable for everyone.",
+        "Founded in 2014, Tourisme Car was born from an entrepreneur's passion for automobiles and customer service. Our mission: to make car rental accessible, simple and enjoyable for everyone.",
       description2:
         "Located in the heart of Casablanca, our agency has grown while keeping its core values: quality of service, price transparency and customer respect. Today, we are proud to have over 5000 satisfied customers.",
       stats: {
@@ -637,7 +637,7 @@ export const translations = {
     // Services section (homepage)
     whyChoose: {
       title: "Why choose",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       subtitle: "Enjoy quality service and exceptional customer experience",
       security: {
         title: "Guaranteed security",
@@ -656,7 +656,7 @@ export const translations = {
     aboutPreview: {
       title: "Your trusted partner for over 10 years",
       description1:
-        "YR Car is a car rental agency located in the heart of Casablanca. Our mission: to offer you a simple, transparent rental experience at the best value.",
+        "Tourisme Car is a car rental agency located in the heart of Casablanca. Our mission: to offer you a simple, transparent rental experience at the best value.",
       description2:
         "Whether you are an individual, a professional or a tourist, we have the vehicle suited to your needs. Our passionate team is at your disposal to assist you in your choice.",
       learnMore: "Learn more about us",
@@ -788,7 +788,7 @@ export const translations = {
     // Review form
     reviewForm: {
       title: "اترك لنا تقييماً",
-      description: "شارك تجربتك مع YR Car Location",
+      description: "شارك تجربتك مع Tourisme Car Location",
       yourName: "اسمك",
       namePlaceholder: "أحمد محمد",
       yourRating: "تقييمك",
@@ -870,9 +870,9 @@ export const translations = {
     // About page
     about: {
       title: "حول",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       description1:
-        "تأسست YR Car في عام 2014 من شغف رائد أعمال بالسيارات وخدمة العملاء. مهمتنا: جعل استئجار السيارات في متناول الجميع وبسيطاً وممتعاً.",
+        "تأسست Tourisme Car في عام 2014 من شغف رائد أعمال بالسيارات وخدمة العملاء. مهمتنا: جعل استئجار السيارات في متناول الجميع وبسيطاً وممتعاً.",
       description2:
         "تقع وكالتنا في قلب الدار البيضاء، وقد نمت مع الحفاظ على قيمنا الأساسية: جودة الخدمة، شفافية الأسعار واحترام العملاء. اليوم، نحن فخورون بأن لدينا أكثر من 5000 عميل راضٍ.",
       stats: {
@@ -975,7 +975,7 @@ export const translations = {
     // Services section (homepage)
     whyChoose: {
       title: "لماذا تختار",
-      titleHighlight: "YR Car Location",
+      titleHighlight: "Tourisme Car Location",
       subtitle: "استمتع بخدمة عالية الجودة وتجربة عملاء استثنائية",
       security: {
         title: "أمان مضمون",
@@ -994,7 +994,7 @@ export const translations = {
     aboutPreview: {
       title: "شريكك الموثوق منذ أكثر من 10 سنوات",
       description1:
-        "YR Car هي وكالة لاستئجار السيارات تقع في قلب الدار البيضاء. مهمتنا: تقديم تجربة استئجار بسيطة وشفافة بأفضل قيمة.",
+        "Tourisme Car هي وكالة لاستئجار السيارات تقع في قلب الدار البيضاء. مهمتنا: تقديم تجربة استئجار بسيطة وشفافة بأفضل قيمة.",
       description2:
         "سواء كنت فرداً أو محترفاً أو سائحاً، لدينا السيارة المناسبة لاحتياجاتك. فريقنا الشغوف في خدمتك لمساعدتك في اختيارك.",
       learnMore: "اعرف المزيد عنا",

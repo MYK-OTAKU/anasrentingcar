@@ -97,7 +97,7 @@ export default function ContactPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation YR Car - Casablanca"
+                  title="Localisation Tourisme Car - Casablanca"
                 />
               </div>
             </div>

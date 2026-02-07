@@ -11,17 +11,17 @@ const _geistMono = Geist_Mono({ subsets: ["latin"] })
 export const metadata: Metadata = {
   metadataBase: new URL('https://yrcar.ma'),
   title: {
-    default: "YR Car Location - Location de voitures au Maroc | Prix compétitifs",
-    template: "%s | YR Car Location",
+    default: "Tourisme Car Location - Location de voitures au Maroc | Prix compétitifs",
+    template: "%s | Tourisme Car Location",
   },
   description:
-    "Location de voiture au Maroc avec YR Car Location. Véhicules récents à prix compétitifs. Service 24/7, assurance complète. Casablanca, Rabat, Marrakech. Réservez maintenant!",
+    "Location de voiture au Maroc avec Tourisme Car Location. Véhicules récents à prix compétitifs. Service 24/7, assurance complète. Casablanca, Rabat, Marrakech. Réservez maintenant!",
   keywords: [
     "location voiture Maroc",
     "location voiture Casablanca",
     "rental car Morocco",
     "location véhicule pas cher",
-    "YR Car Location",
+    "Tourisme Car Location",
     "location voiture aéroport",
     "car rental Casablanca",
     "location longue durée Maroc",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "location voiture Marrakech",
     "استئجار سيارة المغرب",
   ],
-  authors: [{ name: "YR Car Location" }],
-  creator: "YR Car Location",
-  publisher: "YR Car Location",
+  authors: [{ name: "Tourisme Car Location" }],
+  creator: "Tourisme Car Location",
+  publisher: "Tourisme Car Location",
   robots: {
     index: true,
     follow: true,
@@ -58,21 +58,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     url: 'https://yrcar.ma',
-    siteName: "YR Car Location",
-    title: "YR Car Location - Location de voitures au Maroc",
+    siteName: "Tourisme Car Location",
+    title: "Tourisme Car Location - Location de voitures au Maroc",
     description: "Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7. Réservez maintenant!",
     images: [
       {
         url: '/icon.png',
         width: 512,
         height: 512,
-        alt: 'YR Car Location Logo',
+        alt: 'Tourisme Car Location Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YR Car Location - Location de voitures au Maroc',
+    title: 'Tourisme Car Location - Location de voitures au Maroc',
     description: 'Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7.',
     images: ['/icon.png'],
   },
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: "#f59e0b",
+  themeColor: "#5D7CA6", // Bleu Acier - Couleur principale de la marque
   width: "device-width",
   initialScale: 1,
 }

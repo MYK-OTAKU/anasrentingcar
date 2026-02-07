@@ -108,7 +108,7 @@ export const mockReviews: Review[] = [
     id: "3",
     customer_name: "Sara B.",
     rating: 5,
-    comment: "Location sans souci du début à la fin. Merci YR Car !",
+    comment: "Location sans souci du début à la fin. Merci Tourisme Car !",
     approved: true,
     created_at: "2024-11-05T09:15:00Z",
   },

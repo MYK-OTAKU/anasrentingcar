@@ -47,7 +47,7 @@ export function AdminSidebar() {
         )}
       >
         <div className="flex h-16 items-center gap-2 border-b border-border px-6">
-          <Image src="/logo.png" alt="YR Car Location" width={36} height={36} className="h-9 w-auto" />
+          <Image src="/logo.png" alt="Tourisme Car Location" width={36} height={36} className="h-9 w-auto" />
           <span className="font-bold text-foreground">Admin</span>
         </div>
 

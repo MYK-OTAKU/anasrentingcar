@@ -34,7 +34,7 @@ export function AdminHeader({ user }: AdminHeaderProps) {
   return (
     <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card px-4 lg:px-8">
       <div className="lg:hidden" /> {/* Spacer for mobile menu button */}
-      <h1 className="text-lg font-semibold text-foreground lg:text-xl">Administration YR Car</h1>
+      <h1 className="text-lg font-semibold text-foreground lg:text-xl">Administration <span className="fancy-t">T</span>ourisme Car</h1>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" className="relative h-9 w-9 rounded-full">

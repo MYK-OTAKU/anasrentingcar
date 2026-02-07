@@ -54,7 +54,7 @@ export function CarCard({ car }: CarCardProps) {
         <Badge className="absolute left-3 top-3 bg-primary text-primary-foreground shadow-lg animate-fade-in">
           {categoryLabels[car.category]}
         </Badge>
-        {/* Overlay doré au hover */}
+        {/* Overlay au hover */}
         <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
       <CardContent className="p-4">

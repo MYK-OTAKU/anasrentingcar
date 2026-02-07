@@ -28,7 +28,7 @@ export async function submitContactForm(data: ContactFormData) {
       const recipientEmail = process.env.CONTACT_EMAIL || "m2017koita@gmail.com"
       
       await resend.emails.send({
-        from: "YR Car <onboarding@resend.dev>",
+        from: "Tourisme Car <onboarding@resend.dev>",
         to: [recipientEmail],
         subject: `Nouveau message de contact - ${data.subject}`,
         html: `

@@ -17,8 +17,10 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/icon.png" alt="YR Car Location" width={40} height={40} className="h-10 w-auto" />
-              <span className="text-lg font-bold text-foreground">YR Car Location</span>
+              <Image src="/logo.png" alt="Tourisme Car Location" width={40} height={40} className="h-10 w-auto" />
+              <span className="text-lg font-bold text-foreground">
+                <span className="fancy-t">T</span>ourisme Car Location
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground">{t.footer.description}</p>
             <a
@@ -110,7 +112,7 @@ export function Footer() {
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} YR Car Location. {t.footer.rights}
+              © {new Date().getFullYear()} <span className="fancy-t">T</span>ourisme Car Location. {t.footer.rights}
             </p>
             <div className="flex gap-6">
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary">
