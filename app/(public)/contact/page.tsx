@@ -14,19 +14,19 @@ export default function ContactPage() {
       icon: MapPin,
       title: t.contact.address,
       content: t.contact.addressContent,
-      link: "https://maps.google.com/?q=Bd+Yacoub+El+Mansour+Casablanca+Morocco",
+      link: "https://maps.google.com/?q=Airport+Mohammed+V+Casablanca+Morocco",
     },
     {
       icon: Phone,
       title: t.contact.phone,
-      content: "+212 6 00 00 00 00",
-      link: "tel:+212600000000",
+      content: "06 38 08 36 89",
+      link: "tel:+212638083689",
     },
     {
       icon: Mail,
       title: t.contact.email,
-      content: "contact@yr-location.ma",
-      link: "mailto:contact@yr-location.ma",
+      content: "Tva25459@gmail.com",
+      link: "mailto:Tva25459@gmail.com",
     },
     {
       icon: Clock,
@@ -90,14 +90,14 @@ export default function ContactPage() {
               {/* Map - At the bottom of contact info */}
               <div className="mt-8 aspect-video overflow-hidden rounded-lg bg-muted">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.846877095036!2d-7.619869684799866!3d33.59518748073396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d282b8a8a8a5%3A0x8a8a8a8a8a8a8a8a!2sCasablanca%2C%20Morocco!5e0!3m2!1sen!2sma!4v1699999999999!5m2!1sen!2sma"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3329.136208575001!2d-7.589869684799866!3d33.36718748073396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda62f6b8a8a8a5%3A0x8a8a8a8a8a8a8a8a!2sA%C3%A9roport%20international%20Mohammed%20V!5e0!3m2!1sen!2sma!4v1699999999999!5m2!1sen!2sma"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Localisation Tourisme Car - Casablanca"
+                  title="Localisation Rent Car Anas - Aéroport Mohammed V"
                 />
               </div>
             </div>

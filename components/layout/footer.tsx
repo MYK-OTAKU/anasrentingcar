@@ -8,7 +8,7 @@ import { useI18n } from "@/lib/i18n/context"
 export function Footer() {
   const { t } = useI18n()
 
-  const whatsappLink = "https://wa.me/212600000000"
+  const whatsappLink = "https://wa.me/212638083689"
 
   return (
     <footer className="border-t border-border bg-muted/50">
@@ -17,9 +17,9 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="Tourisme Car Location" width={40} height={40} className="h-10 w-auto" />
+              <Image src="/logo.png" alt="Rent Car Anas" width={40} height={40} className="h-10 w-auto" />
               <span className="text-lg font-bold text-foreground">
-                <span className="fancy-t">T</span>ourisme Car Location
+                Rent Car Anas
               </span>
             </Link>
             <p className="text-sm text-muted-foreground">{t.footer.description}</p>
@@ -79,21 +79,21 @@ export function Footer() {
               <li className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                 <span className="text-sm text-muted-foreground">
-                  Bd Yacoub El Mansour
+                  Aéroport Mohammed V
                   <br />
                   Casablanca, Maroc
                 </span>
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 flex-shrink-0 text-primary" />
-                <a href="tel:+212600000000" className="text-sm text-muted-foreground hover:text-primary">
-                  +212 6 00 00 00 00
+                <a href="tel:+212638083689" className="text-sm text-muted-foreground hover:text-primary">
+                  06 38 08 36 89
                 </a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="h-4 w-4 flex-shrink-0 text-primary" />
-                <a href="mailto:contact@yr-location.ma" className="text-sm text-muted-foreground hover:text-primary">
-                  contact@yr-location.ma
+                <a href="mailto:Tva25459@gmail.com" className="text-sm text-muted-foreground hover:text-primary">
+                  Tva25459@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-2">
@@ -112,7 +112,7 @@ export function Footer() {
         <div className="mt-12 border-t border-border pt-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} <span className="fancy-t">T</span>ourisme Car Location. {t.footer.rights}
+              © {new Date().getFullYear()} Rent Car Anas. {t.footer.rights}
             </p>
             <div className="flex gap-6">
               <Link href="#" className="text-sm text-muted-foreground hover:text-primary">

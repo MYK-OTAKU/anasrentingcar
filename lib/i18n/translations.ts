@@ -59,7 +59,7 @@ export const translations = {
     },
     // Locations
     locations: {
-      casablanca: "HILMANI CAR (AGENCE CASABLANCA)",
+      casablanca: "RENT CAR ANAS (AGENCE CASABLANCA)",
       mohammedV: "AÉROPORT INTERNATIONAL MOHAMMED V DE CASABLANCA",
       rabat: "RABAT - SALÉ AIRPORT",
       marrakech: "MARRAKECH MENARA AIRPORT",
@@ -93,15 +93,15 @@ export const translations = {
       phone: "Téléphone",
       email: "Email",
       hours: "Horaires",
-      addressContent: "Bd Yacoub El Mansour\nCasablanca, Maroc",
-      hoursContent: "Lun - Sam: 8h - 19h\nDim: 9h - 17h",
+      addressContent: "Aéroport Mohammed V\nCasablanca, Maroc",
+      hoursContent: "Lun - Dim: 24h/24",
       shareExperience: "Partagez votre expérience",
       shareExperienceSubtitle: "Votre avis nous aide à améliorer nos services",
     },
     // Review form
     reviewForm: {
       title: "Laissez-nous un avis",
-      description: "Partagez votre expérience avec Tourisme Car Location",
+      description: "Partagez votre expérience avec Rent Car Anas",
       yourName: "Votre nom",
       namePlaceholder: "Ahmed El Mansouri",
       yourRating: "Votre note",
@@ -166,7 +166,7 @@ export const translations = {
     // Footer
     footer: {
       description:
-        "Votre partenaire de confiance pour la location de véhicules au Maroc. Service de qualité et prix compétitifs.",
+        "Votre partenaire de confiance pour la location de véhicules à l'Aéroport Mohammed V de Casablanca. Service de qualité et prix compétitifs.",
       navigation: "Navigation",
       contact: "Contact",
       followUs: "Suivez-nous",
@@ -179,17 +179,17 @@ export const translations = {
       legal: "Mentions légales",
       privacy: "Politique de confidentialité",
       terms: "CGV",
-      hours: "Lun - Sam: 8h - 19h",
-      hoursSunday: "Dim: 9h - 17h",
+      hours: "Lun - Dim: 24h/24",
+      hoursSunday: "Service Aéroport",
     },
     // About page
     about: {
       title: "À propos de",
-      titleHighlight: "Tourisme Car Location",
+      titleHighlight: "Rent Car Anas",
       description1:
-        "Fondée en 2014, Tourisme Car est née de la passion d'un entrepreneur pour l'automobile et le service client. Notre mission : rendre la location de voiture accessible, simple et agréable pour tous.",
+        "Rent Car Anas est votre partenaire de confiance pour la location de voitures à l'Aéroport Mohammed V de Casablanca. Notre mission : rendre la location de voiture accessible, simple et agréable pour tous dès votre arrivée.",
       description2:
-        "Implantée au cœur de Casablanca, notre agence a su se développer en gardant ses valeurs fondamentales : qualité de service, transparence des prix et respect du client. Aujourd'hui, nous sommes fiers de compter plus de 5000 clients satisfaits.",
+        "Basée stratégiquement à l'Aéroport Mohammed V, notre agence propose une large gamme de véhicules récents pour répondre à tous vos besoins de mobilité au Maroc.",
       stats: {
         experience: "Années d'expérience",
         vehicles: "Véhicules disponibles",
@@ -225,7 +225,7 @@ export const translations = {
         },
         location: {
           title: "Emplacement idéal",
-          description: "Présents à Casablanca, Rabat, Marrakech et dans les principaux aéroports.",
+          description: "Présents directement à l'Aéroport Mohammed V de Casablanca pour votre confort.",
         },
         insurance: {
           title: "Assurance complète",
@@ -247,7 +247,7 @@ export const translations = {
       teamTitle: "Notre équipe",
       teamSubtitle: "Des professionnels passionnés à votre service",
       team: {
-        founder: "Fondateur & Directeur",
+        founder: "Anas - Fondateur & Directeur",
         customerService: "Responsable Clientèle",
         fleetManager: "Chef de Parc",
       },
@@ -294,8 +294,8 @@ export const translations = {
     // Services section (homepage)
     whyChoose: {
       title: "Pourquoi choisir",
-      titleHighlight: "Tourisme Car Location",
-      subtitle: "Profitez d'un service de qualité et d'une expérience client exceptionnelle",
+      titleHighlight: "Rent Car Anas",
+      subtitle: "Profitez d'un service de qualité et d'une expérience client exceptionnelle à l'Aéroport Mohammed V",
       security: {
         title: "Sécurité garantie",
         description: "Tous nos véhicules sont régulièrement contrôlés et entretenus.",
@@ -311,11 +311,11 @@ export const translations = {
     },
     // About preview
     aboutPreview: {
-      title: "Votre partenaire de confiance depuis plus de 10 ans",
+      title: "Votre partenaire de confiance à l'Aéroport Mohammed V",
       description1:
-        "Tourisme Car est une agence de location de voitures implantée au cœur de Casablanca. Notre mission : vous offrir une expérience de location simple, transparente et au meilleur rapport qualité-prix.",
+        "Rent Car Anas est une agence de location de voitures spécialisée dans le service aéroportuaire à Casablanca. Notre mission : vous offrir une expérience de location simple dès votre atterrissage.",
       description2:
-        "Que vous soyez un particulier, un professionnel ou un touriste, nous avons le véhicule adapté à vos besoins. Notre équipe passionnée est à votre écoute pour vous accompagner dans votre choix.",
+        "Que vous soyez un particulier, un professionnel ou un touriste, nous avons le véhicule adapté à vos besoins avec une livraison directe à l'aéroport.",
       learnMore: "En savoir plus sur nous",
     },
     // CTA section
@@ -390,7 +390,7 @@ export const translations = {
       features: {
         multipleLocations: {
           title: "Multiple locations",
-          description: "Casablanca, Rabat, Marrakech",
+          description: "Casablanca Airport, City Center",
         },
         flexibleBooking: {
           title: "Flexible booking",
@@ -408,7 +408,7 @@ export const translations = {
     },
     // Locations
     locations: {
-      casablanca: "HILMANI CAR (CASABLANCA AGENCY)",
+      casablanca: "RENT CAR ANAS (CASABLANCA AGENCY)",
       mohammedV: "MOHAMMED V INTERNATIONAL AIRPORT CASABLANCA",
       rabat: "RABAT - SALÉ AIRPORT",
       marrakech: "MARRAKECH MENARA AIRPORT",
@@ -441,15 +441,15 @@ export const translations = {
       phone: "Phone",
       email: "Email",
       hours: "Hours",
-      addressContent: "Bd Yacoub El Mansour\nCasablanca, Morocco",
-      hoursContent: "Mon - Sat: 8am - 7pm\nSun: 9am - 5pm",
+      addressContent: "Mohammed V Airport\nCasablanca, Morocco",
+      hoursContent: "Mon - Sun: 24/7",
       shareExperience: "Share Your Experience",
       shareExperienceSubtitle: "Your feedback helps us improve our services",
     },
     // Review form
     reviewForm: {
       title: "Leave us a review",
-      description: "Share your experience with Tourisme Car Location",
+      description: "Share your experience with Rent Car Anas",
       yourName: "Your name",
       namePlaceholder: "John Doe",
       yourRating: "Your rating",
@@ -513,7 +513,7 @@ export const translations = {
     },
     // Footer
     footer: {
-      description: "Your trusted partner for vehicle rental in Morocco. Quality service and competitive prices.",
+      description: "Your trusted partner for vehicle rental at Casablanca Mohammed V Airport. Quality service and competitive prices.",
       navigation: "Navigation",
       contact: "Contact",
       followUs: "Follow us",
@@ -526,17 +526,17 @@ export const translations = {
       legal: "Legal notice",
       privacy: "Privacy policy",
       terms: "Terms & Conditions",
-      hours: "Mon - Sat: 8am - 7pm",
-      hoursSunday: "Sun: 9am - 5pm",
+      hours: "Mon - Sun: 24/7",
+      hoursSunday: "Airport Service",
     },
     // About page
     about: {
       title: "About",
-      titleHighlight: "Tourisme Car Location",
+      titleHighlight: "Rent Car Anas",
       description1:
-        "Founded in 2014, Tourisme Car was born from an entrepreneur's passion for automobiles and customer service. Our mission: to make car rental accessible, simple and enjoyable for everyone.",
+        "Rent Car Anas is your trusted partner for car rental at Casablanca's Mohammed V Airport. Our mission: to make car rental accessible, simple and enjoyable for everyone from the moment you arrive.",
       description2:
-        "Located in the heart of Casablanca, our agency has grown while keeping its core values: quality of service, price transparency and customer respect. Today, we are proud to have over 5000 satisfied customers.",
+        "Strategically located at Mohammed V Airport, our agency offers a wide range of recent vehicles to meet all your mobility needs in Morocco.",
       stats: {
         experience: "Years of experience",
         vehicles: "Available vehicles",
@@ -571,7 +571,7 @@ export const translations = {
         },
         location: {
           title: "Ideal location",
-          description: "Present in Casablanca, Rabat, Marrakech and at major airports.",
+          description: "Located directly at Casablanca Mohammed V Airport for your convenience.",
         },
         insurance: {
           title: "Comprehensive insurance",
@@ -590,7 +590,7 @@ export const translations = {
       teamTitle: "Our team",
       teamSubtitle: "Passionate professionals at your service",
       team: {
-        founder: "Founder & Director",
+        founder: "Anas - Founder & Director",
         customerService: "Customer Service Manager",
         fleetManager: "Fleet Manager",
       },
