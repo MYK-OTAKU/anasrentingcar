@@ -9,19 +9,19 @@ const _inter = Inter({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://yrcar.ma'),
+  metadataBase: new URL('https://rentcaranas.ma'),
   title: {
-    default: "Tourisme Car Location - Location de voitures au Maroc | Prix compétitifs",
-    template: "%s | Tourisme Car Location",
+    default: "Rent Car Anas - Location de voitures au Maroc | Prix compétitifs",
+    template: "%s | Rent Car Anas",
   },
   description:
-    "Location de voiture au Maroc avec Tourisme Car Location. Véhicules récents à prix compétitifs. Service 24/7, assurance complète. Casablanca, Rabat, Marrakech. Réservez maintenant!",
+    "Location de voiture au Maroc avec Rent Car Anas. Véhicules récents à prix compétitifs. Service 24/7, assurance complète. Aéroport Mohammed V Casablanca. Réservez maintenant!",
   keywords: [
     "location voiture Maroc",
     "location voiture Casablanca",
     "rental car Morocco",
     "location véhicule pas cher",
-    "Tourisme Car Location",
+    "Rent Car Anas",
     "location voiture aéroport",
     "car rental Casablanca",
     "location longue durée Maroc",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     "location voiture Marrakech",
     "استئجار سيارة المغرب",
   ],
-  authors: [{ name: "Tourisme Car Location" }],
-  creator: "Tourisme Car Location",
-  publisher: "Tourisme Car Location",
+  authors: [{ name: "Rent Car Anas" }],
+  creator: "Rent Car Anas",
+  publisher: "Rent Car Anas",
   robots: {
     index: true,
     follow: true,
@@ -48,33 +48,33 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://yrcar.ma',
+    canonical: 'https://rentcaranas.ma',
     languages: {
-      'en': 'https://yrcar.ma/en',
-      'ar': 'https://yrcar.ma/ar',
+      'en': 'https://rentcaranas.ma/en',
+      'ar': 'https://rentcaranas.ma/ar',
     },
   },
   openGraph: {
     type: "website",
     locale: "fr_FR",
-    url: 'https://yrcar.ma',
-    siteName: "Tourisme Car Location",
-    title: "Tourisme Car Location - Location de voitures au Maroc",
+    url: 'https://rentcaranas.ma',
+    siteName: "Rent Car Anas",
+    title: "Rent Car Anas - Location de voitures au Maroc",
     description: "Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7. Réservez maintenant!",
     images: [
       {
-        url: '/icon.png',
+        url: '/logo.png',
         width: 512,
         height: 512,
-        alt: 'Tourisme Car Location Logo',
+        alt: 'Rent Car Anas Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Tourisme Car Location - Location de voitures au Maroc',
+    title: 'Rent Car Anas - Location de voitures au Maroc',
     description: 'Location de voiture au Maroc. Véhicules récents, prix compétitifs, service 24/7.',
-    images: ['/icon.png'],
+    images: ['/logo.png'],
   },
   verification: {
     // À remplir après création des comptes

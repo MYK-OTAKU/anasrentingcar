@@ -59,10 +59,10 @@ export const translations = {
     },
     // Locations
     locations: {
-      casablanca: "RENT CAR ANAS (AGENCE CASABLANCA)",
-      mohammedV: "AÉROPORT INTERNATIONAL MOHAMMED V DE CASABLANCA",
-      rabat: "RABAT - SALÉ AIRPORT",
-      marrakech: "MARRAKECH MENARA AIRPORT",
+      casablanca: "RENT CAR ANAS (CASABLANCA)",
+      mohammedV: "AÉROPORT MOHAMMED V",
+      rabat: "AÉROPORT RABAT-SALÉ",
+      marrakech: "AÉROPORT MARRAKECH-MÉNARA",
     },
     // Car card
     car: {
@@ -408,10 +408,10 @@ export const translations = {
     },
     // Locations
     locations: {
-      casablanca: "RENT CAR ANAS (CASABLANCA AGENCY)",
-      mohammedV: "MOHAMMED V INTERNATIONAL AIRPORT CASABLANCA",
-      rabat: "RABAT - SALÉ AIRPORT",
-      marrakech: "MARRAKECH MENARA AIRPORT",
+      casablanca: "RENT CAR ANAS (CASABLANCA)",
+      mohammedV: "MOHAMMED V AIRPORT",
+      rabat: "RABAT-SALÉ AIRPORT",
+      marrakech: "MARRAKECH-MENARA AIRPORT",
     },
     // Car card
     car: {

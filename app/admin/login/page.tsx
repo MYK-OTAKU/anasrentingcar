@@ -93,9 +93,9 @@ export default function AdminLoginPage() {
       <div className="w-full max-w-md">
         <div className="mb-8 text-center">
           <Link href="/" className="inline-flex items-center gap-2">
-            <Image src="/logo.png" alt="Tourisme Car Location" width={48} height={48} className="h-12 w-auto" />
+            <Image src="/logo.png" alt="Rent Car Anas" width={48} height={48} className="h-12 w-auto" />
             <span className="text-xl font-bold text-foreground">
-              <span className="fancy-t">T</span>ourisme Car Location
+              Rent Car Anas
             </span>
           </Link>
         </div>
@@ -112,7 +112,7 @@ export default function AdminLoginPage() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="admin@yr-location.fr"
+                  placeholder="admin@rentcaranas.ma"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

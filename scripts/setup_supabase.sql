@@ -53,7 +53,7 @@ ON CONFLICT (id) DO NOTHING;
 
 -- Policies for public access (Read-only for users)
 CREATE POLICY "Public Access Cars" ON public.cars FOR SELECT USING (true);
-CREATE POLICY "Public Access Reviews" ON public.reviews FOR SELECT WHERE (is_approved = true);
+CREATE POLICY "Public Access Reviews" ON public.reviews FOR SELECT USING (is_approved = true);
 
 -- Policies for inserting requests
 CREATE POLICY "Enable insert for everyone" ON public.reservations FOR INSERT WITH CHECK (true);

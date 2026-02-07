@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a car rental website for "Tourisme Car Location" (also referred to as "YR Car"), a car rental agency operating in Morocco. The site allows customers to browse vehicles, make reservation requests, submit reviews, and contact the agency. It includes a full admin dashboard for managing vehicles (CRUD), moderating customer reviews, and handling contact/reservation requests. The site supports multiple languages (English, Arabic, with French translations preserved) and has light/dark theme support.
+This is a car rental website for "Rent Car Anas", a car rental agency operating at Mohammed V Airport in Morocco. The site allows customers to browse vehicles, make reservation requests, submit reviews, and contact the agency. It includes a full admin dashboard for managing vehicles (CRUD), moderating customer reviews, and handling contact/reservation requests. The site supports multiple languages (English, Arabic, with French translations preserved) and has light/dark theme support.
 
 ## User Preferences
 

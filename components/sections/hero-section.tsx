@@ -27,7 +27,7 @@ export function HeroSection() {
           {/* Left side - Text content */}
           <div className="flex flex-col justify-center animate-fade-in-up">
             <h1 className="text-balance text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl xl:text-6xl animate-slide-in-left">
-              {t.hero.title} <span className="text-primary animate-pulse-glow">{t.hero.titleHighlight}</span>
+              {t.hero.title} <span className="bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent animate-pulse-glow">{t.hero.titleHighlight}</span>
             </h1>
             <p className="mt-4 text-pretty text-base text-muted-foreground lg:text-lg animate-fade-in [animation-delay:200ms]">{t.hero.subtitle}</p>
             <ul className="mt-6 space-y-3">

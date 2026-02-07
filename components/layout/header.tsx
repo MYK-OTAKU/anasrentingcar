@@ -25,9 +25,9 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          <Image src="/logo.png" alt="Tourisme Car Location" width={48} height={48} className="h-10 w-auto md:h-12 transition-transform group-hover:scale-110" />
-          <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent md:text-xl">
-            <span className="fancy-t">T</span>ourisme Car Location
+          <Image src="/logo.png" alt="Rent Car Anas" width={48} height={48} className="h-10 w-auto md:h-12 transition-transform group-hover:scale-110" />
+          <span className="text-lg font-bold bg-gradient-to-r from-primary via-red-500 to-primary bg-clip-text text-transparent md:text-xl">
+            Rent Car Anas
           </span>
         </Link>
 
