@@ -4,3 +4,38 @@ expertMode = true
 
 [nix]
 channel = "stable-25_05"
+
+[userenv]
+
+[userenv.shared]
+NEXT_PUBLIC_SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpqc2h4bG1rbGV6eHVjeGloZmZ6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA0NzkwNTksImV4cCI6MjA4NjA1NTA1OX0.rYb05U0n1b5rkwCEtQD_JEtxvE6OlOUqebpNB4C8q9M"
+SUPABASE_SERVICE_ROLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpqc2h4bG1rbGV6eHVjeGloZmZ6Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3MDQ3OTA1OSwiZXhwIjoyMDg2MDU1MDU5fQ.t7katmzHIvpdba7WB1HpDj-H2pQaT8SQl2-5XYRRNGQ"
+NEXT_PUBLIC_SUPABASE_URL = "https://zjshxlmklezxucxihffz.supabase.co"
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "dev-server"
+
+[[workflows.workflow]]
+name = "dev-server"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev -- --port 5000 --host 0.0.0.0"
+waitForPort = 5000
+
+[workflows.workflow.metadata]
+outputType = "webview"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
