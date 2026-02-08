@@ -636,38 +636,38 @@ export const translations = {
     },
     // Services page
     services: {
-      title: "Notre gamme de",
-      titleHighlight: "véhicules",
+      title: "Our range of",
+      titleHighlight: "vehicles",
       subtitle:
-        "Découvrez notre sélection de voitures pour tous vos besoins : déplacements urbains, voyages en famille, trajets professionnels ou déménagements.",
-      noResults: "Aucun véhicule ne correspond à vos critères.",
+        "Discover our selection of cars for all your needs: urban trips, family travels, business trips or moving.",
+      noResults: "No vehicles match your criteria.",
     },
     // Services section (homepage)
     whyChoose: {
-      title: "Pourquoi choisir",
+      title: "Why choose",
       titleHighlight: "Rent Car Anas",
-      subtitle: "Profitez d'un service de qualité et d'une expérience client exceptionnelle à l'Aéroport Mohammed V",
+      subtitle: "Enjoy quality service and exceptional customer experience at Mohammed V Airport",
       security: {
-        title: "Sécurité garantie",
-        description: "Tous nos véhicules sont régulièrement contrôlés et entretenus.",
+        title: "Guaranteed security",
+        description: "All our vehicles are regularly checked and maintained.",
       },
       service247: {
-        title: "Service 24h/24",
-        description: "Une assistance disponible à tout moment pour votre tranquillité.",
+        title: "24/7 Service",
+        description: "Assistance available at any time for your peace of mind.",
       },
       premium: {
-        title: "Qualité premium",
-        description: "Une flotte récente et variée pour répondre à tous vos besoins.",
+        title: "Premium quality",
+        description: "A recent and varied fleet to meet all your needs.",
       },
     },
     // About preview
     aboutPreview: {
-      title: "Votre partenaire de confiance à l'Aéroport Mohammed V",
+      title: "Your trusted partner at Mohammed V Airport",
       description1:
-        "Rent Car Anas est une agence de location de voitures spécialisée dans le service aéroportuaire à Casablanca. Notre mission : vous offrir une expérience de location simple dès votre atterrissage.",
+        "Rent Car Anas is a car rental agency specializing in airport service in Casablanca. Our mission: to offer you a simple rental experience as soon as you land.",
       description2:
-        "Que vous soyez un particulier, un professionnel ou un touriste, nous avons le véhicule adapté à vos besoins avec une livraison directe à l'aéroport.",
-      learnMore: "En savoir plus sur nous",
+        "Whether you are an individual, a professional or a tourist, we have the vehicle suited to your needs with direct airport delivery.",
+      learnMore: "Learn more about us",
     },
     // CTA section
     cta: {
