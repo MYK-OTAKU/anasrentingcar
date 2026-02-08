@@ -946,7 +946,7 @@
   resolved "https://registry.npmjs.org/@radix-ui/rect/-/rect-1.1.1.tgz"
   integrity sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==
 
-"@react-email/render@*", "@react-email/render@^1.0.1":
+"@react-email/render@^1.0.1":
   version "1.4.0"
   resolved "https://registry.npmjs.org/@react-email/render/-/render-1.4.0.tgz"
   integrity sha512-ZtJ3noggIvW1ZAryoui95KJENKdCzLmN5F7hyZY1F/17B1vwzuxHB7YkuCg0QqHjDivc5axqYEYdIOw4JIQdUw==
@@ -1014,7 +1014,7 @@
     iceberg-js "^0.8.0"
     tslib "2.8.1"
 
-"@supabase/supabase-js@^2.76.1", "@supabase/supabase-js@latest":
+"@supabase/supabase-js@latest":
   version "2.86.0"
   resolved "https://registry.npmjs.org/@supabase/supabase-js/-/supabase-js-2.86.0.tgz"
   integrity sha512-BaC9sv5+HGNy1ulZwY8/Ev7EjfYYmWD4fOMw9bDBqTawEj6JHAiOHeTwXLRzVaeSay4p17xYLN2NSCoGgXMQnw==
@@ -1147,12 +1147,12 @@
   resolved "https://registry.npmjs.org/@types/phoenix/-/phoenix-1.6.6.tgz"
   integrity sha512-PIzZZlEppgrpoT2QgbnDU+MMzuR6BbCjllj0bM70lWoejMeNJAxCchxnv7J3XFkI8MpygtRpzXrIlmWUBclP5A==
 
-"@types/react-dom@*", "@types/react-dom@^19":
+"@types/react-dom@^19":
   version "19.2.3"
   resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-19.2.3.tgz"
   integrity sha512-jp2L/eY6fn+KgVVQAOqYItbF0VY/YApe5Mz2F0aykSO8gx31bYCZyvSeYxCHKvzHG5eZjc+zyaS5BrBWya2+kQ==
 
-"@types/react@*", "@types/react@^19", "@types/react@^19.2.0":
+"@types/react@^19":
   version "19.2.7"
   resolved "https://registry.npmjs.org/@types/react/-/react-19.2.7.tgz"
   integrity sha512-MWtvHrGZLFttgeEj28VXHxpmwYbor/ATPYbBfSFZEIRK0ecCFLl2Qo55z52Hss+UV9CRN7trSeq1zbgx7YDWWg==
@@ -1195,7 +1195,7 @@ baseline-browser-mapping@^2.8.25:
   resolved "https://registry.npmjs.org/baseline-browser-mapping/-/baseline-browser-mapping-2.8.32.tgz"
   integrity sha512-OPz5aBThlyLFgxyhdwf/s2+8ab3OvT7AdTNvKHBwpXomIYeXqpUUuT8LrdtxZSsWJ4R4CU1un4XGh5Ez3nlTpw==
 
-browserslist@^4.27.0, "browserslist@>= 4.21.0":
+browserslist@^4.27.0:
   version "4.28.0"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.28.0.tgz"
   integrity sha512-tbydkR/CxfMwelN0vwdP/pLkDwyAASZ+VfWm4EOwlB6SWhx1sYnWLqo8N5j0rAzPfzfRaxt0mM/4wPU/Su84RQ==
@@ -1617,7 +1617,7 @@ next-themes@latest:
   resolved "https://registry.npmjs.org/next-themes/-/next-themes-0.4.6.tgz"
   integrity sha512-pZvgD5L0IEvX5/9GWyHMf3m8BKiVQwsCMHfoFosXtXBMnaS0ZnIJ9ST4b4NqLVKDEm8QBxoNNGNaBv2JNF6XNA==
 
-"next@>= 13", next@15.1.6:
+next@15.1.6:
   version "15.1.6"
   resolved "https://registry.npmjs.org/next/-/next-15.1.6.tgz"
   integrity sha512-Hch4wzbaX0vKQtalpXvUiw5sYivBy4cm5rzUKrBnUB/y436LGrvOUqYvlSeNVCWFO/770gDlltR9gqZH62ct4Q==
@@ -1678,7 +1678,7 @@ postcss-value-parser@^4.2.0:
   resolved "https://registry.npmjs.org/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz"
   integrity sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==
 
-postcss@^8.1.0, postcss@^8.4.41, postcss@^8.5:
+postcss@^8.4.41, postcss@^8.5:
   version "8.5.6"
   resolved "https://registry.npmjs.org/postcss/-/postcss-8.5.6.tgz"
   integrity sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==
@@ -1724,14 +1724,14 @@ react-day-picker@9.8.0:
     date-fns "4.1.0"
     date-fns-jalali "4.1.0-0"
 
-"react-dom@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react-dom@^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc", "react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom@^18 || ^19 || ^19.0.0-rc", "react-dom@^18.0 || ^19.0 || ^19.0.0-rc", "react-dom@^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react-dom@^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0", react-dom@>=16.6.0, react-dom@>=16.8.0, react-dom@19.0.0-rc-de68d2f4-20241204:
+react-dom@19.0.0-rc-de68d2f4-20241204:
   version "19.0.0-rc-de68d2f4-20241204"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-19.0.0-rc-de68d2f4-20241204.tgz"
   integrity sha512-DrJ+o2bSvinvpQxBO49C8rDgkCshg/z4wU3P1RTAXzu2AgEqZwZqKQ8YJpHVNGEP7/4jg5FjJmuwPtzoNZpeIg==
   dependencies:
     scheduler "0.25.0-rc-de68d2f4-20241204"
 
-react-hook-form@^7.0.0, react-hook-form@^7.60.0:
+react-hook-form@^7.60.0:
   version "7.67.0"
   resolved "https://registry.npmjs.org/react-hook-form/-/react-hook-form-7.67.0.tgz"
   integrity sha512-E55EOwKJHHIT/I6J9DmQbCWToAYSw9nN5R57MZw9rMtjh+YQreMDxRLfdjfxQbiJ3/qbg3Z02wGzBX4M+5fMtQ==
@@ -1804,7 +1804,7 @@ react-transition-group@^4.4.5:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-"react@^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0-rc", "react@^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc", "react@^16.8 || ^17.0 || ^18.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17 || ^18 || ^19", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^16.8.0 || ^17.0.1 || ^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^18 || ^19 || ^19.0.0-rc", "react@^18.0 || ^19.0 || ^19.0.0-rc", "react@^18.0.0 || ^19.0.0 || ^19.0.0-rc", "react@^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0 || ^19.0.0-0", react@>=16.6.0, react@>=16.8.0, react@19.0.0-rc-de68d2f4-20241204:
+react@19.0.0-rc-de68d2f4-20241204:
   version "19.0.0-rc-de68d2f4-20241204"
   resolved "https://registry.npmjs.org/react/-/react-19.0.0-rc-de68d2f4-20241204.tgz"
   integrity sha512-bEE63RAe0Leh2BYkaPjwzEYqqfYo+PzICvRNRplR3Q5NJzH8fUe3yApqzvu2qeFQXVEo7/yNel5IdKBqTtAYfg==
@@ -1939,7 +1939,7 @@ tailwindcss-animate@^1.0.7:
   resolved "https://registry.npmjs.org/tailwindcss-animate/-/tailwindcss-animate-1.0.7.tgz"
   integrity sha512-bl6mpH3T7I3UFxuvDEXLxy/VuFxBk5bbzplh7tXI68mwMokNYd1t9qPBHlnyTwfa4JGC4zP516I1hYYtQ/vspA==
 
-tailwindcss@^4.1.9, "tailwindcss@>=3.0.0 || insiders", tailwindcss@4.1.17:
+tailwindcss@^4.1.9, tailwindcss@4.1.17:
   version "4.1.17"
   resolved "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.1.17.tgz"
   integrity sha512-j9Ee2YjuQqYT9bbRTfTZht9W/ytp5H+jJpZKiYdP/bpnXARAuELt9ofP0lPnmHjbga7SNQIxdTAXCmtKVYjN+Q==
