@@ -10,6 +10,7 @@ export interface Car {
   price_per_day: number
   description: string
   image_url: string
+  images?: string[]
   available: boolean
   created_at: string
   updated_at?: string

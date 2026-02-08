@@ -25,33 +25,47 @@ export function CarForm({ car }: CarFormProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [isUploading, setIsUploading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [imageUrl, setImageUrl] = useState(car?.image_url || "")
+  const [images, setImages] = useState<string[]>(car?.images || (car?.image_url ? [car.image_url] : []))
   const [available, setAvailable] = useState(car?.available ?? true)
   const fileInputRef = useRef<HTMLInputElement>(null)
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (!file) return
+    const files = e.target.files
+    if (!files || files.length === 0) return
 
     setIsUploading(true)
     setError(null)
 
     try {
-      const formData = new FormData()
-      formData.append("file", file)
+      const newImages = [...images]
 
-      const result = await uploadCarImage(formData)
+      for (let i = 0; i < files.length; i++) {
+        const formData = new FormData()
+        formData.append("file", files[i])
 
-      if (result.error) {
-        setError(result.error)
-      } else if (result.url) {
-        setImageUrl(result.url)
+        const result = await uploadCarImage(formData)
+
+        if (result.error) {
+          setError(result.error)
+        } else if (result.url) {
+          newImages.push(result.url)
+        }
       }
+
+      setImages(newImages)
     } catch (err) {
-      setError("Erreur lors de l'upload de l'image")
+      setError("Erreur lors de l'upload des images")
     } finally {
       setIsUploading(false)
+      // Reset input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = ""
+      }
     }
+  }
+
+  const removeImage = (indexToRemove: number) => {
+    setImages(images.filter((_, index) => index !== indexToRemove))
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -60,31 +74,22 @@ export function CarForm({ car }: CarFormProps) {
     setError(null)
 
     const formData = new FormData(e.currentTarget)
-    formData.set("image_url", imageUrl)
+    // Send images array as JSON
+    formData.set("images", JSON.stringify(images))
+    // Keep image_url as the first image for backward compatibility
+    formData.set("image_url", images[0] || "")
     formData.set("available", available.toString())
-
-    console.log("Form data:", {
-      brand: formData.get("brand"),
-      model: formData.get("model"),
-      image_url: imageUrl,
-      available: available,
-    })
 
     try {
       const result = car ? await updateCar(car.id, formData) : await createCar(formData)
 
-      console.log("Action result:", result)
-
       if (result.error) {
-        console.error("Error from action:", result.error)
         setError(result.error)
       } else {
-        console.log("Success! Redirecting...")
         router.push("/admin/cars")
         router.refresh()
       }
     } catch (err) {
-      console.error("Exception:", err)
       setError(err instanceof Error ? err.message : "Une erreur est survenue")
     } finally {
       setIsLoading(false)
@@ -93,7 +98,7 @@ export function CarForm({ car }: CarFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {/* Bouton retour */}
+      {/* ... previous code ... */}
       <Link href="/admin/cars">
         <Button type="button" variant="outline" size="sm">
           <ArrowLeft className="mr-2 h-4 w-4" />
@@ -178,20 +183,31 @@ export function CarForm({ car }: CarFormProps) {
 
       {/* Section Upload d'image */}
       <div className="space-y-2">
-        <Label>Image du véhicule *</Label>
+        <Label>Images du véhicule (La première sera l'image principale) *</Label>
         <div className="space-y-4">
-          {imageUrl && (
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg border">
-              <Image src={imageUrl} alt="Aperçu" fill className="object-cover" />
-              <Button
-                type="button"
-                variant="destructive"
-                size="icon"
-                className="absolute right-2 top-2"
-                onClick={() => setImageUrl("")}
-              >
-                <X className="h-4 w-4" />
-              </Button>
+          {/* Grille d'images */}
+          {images.length > 0 && (
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {images.map((url, index) => (
+                <div key={index} className="relative aspect-video w-full overflow-hidden rounded-lg border group">
+                  <Image src={url} alt={`Vue ${index + 1}`} fill className="object-cover" />
+                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <Button
+                      type="button"
+                      variant="destructive"
+                      size="icon"
+                      onClick={() => removeImage(index)}
+                    >
+                      <X className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  {index === 0 && (
+                    <div className="absolute top-2 left-2 bg-primary text-primary-foreground text-xs px-2 py-1 rounded">
+                      Principale
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
           )}
 
@@ -200,7 +216,7 @@ export function CarForm({ car }: CarFormProps) {
               ref={fileInputRef}
               type="file"
               accept="image/*"
-              capture="environment"
+              multiple // Allow multiple files
               onChange={handleImageUpload}
               className="hidden"
             />
@@ -209,7 +225,7 @@ export function CarForm({ car }: CarFormProps) {
               variant="outline"
               onClick={() => fileInputRef.current?.click()}
               disabled={isUploading}
-              className="flex-1"
+              className="w-full h-24 border-dashed"
             >
               {isUploading ? (
                 <>
@@ -217,10 +233,13 @@ export function CarForm({ car }: CarFormProps) {
                   Upload en cours...
                 </>
               ) : (
-                <>
-                  <Upload className="mr-2 h-4 w-4" />
-                  {imageUrl ? "Changer l'image" : "Choisir une image"}
-                </>
+                <div className="flex flex-col items-center gap-2">
+                  <Upload className="h-8 w-8 text-muted-foreground" />
+                  <span>Ajouter des photos</span>
+                  <span className="text-xs text-muted-foreground font-normal">
+                    Cliquez pour sélectionner plusieurs fichiers
+                  </span>
+                </div>
               )}
             </Button>
           </div>
@@ -242,8 +261,8 @@ export function CarForm({ car }: CarFormProps) {
       </div>
 
       <div className="flex items-center gap-2">
-        <Switch 
-          id="available" 
+        <Switch
+          id="available"
           checked={available}
           onCheckedChange={setAvailable}
         />
@@ -253,7 +272,7 @@ export function CarForm({ car }: CarFormProps) {
       {error && <p className="text-sm text-destructive">{error}</p>}
 
       <div className="flex gap-4">
-        <Button type="submit" disabled={isLoading || !imageUrl}>
+        <Button type="submit" disabled={isLoading || images.length === 0}>
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />

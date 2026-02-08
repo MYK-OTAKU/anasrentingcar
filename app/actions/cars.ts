@@ -78,7 +78,8 @@ export async function createCar(formData: FormData) {
     fuel_type: formData.get("fuel_type") as string,
     price_per_day: Number.parseFloat(formData.get("price_per_day") as string),
     description: formData.get("description") as string,
-    image_url: formData.get("image_url") as string,
+    image_url: formData.get("image_url") as string || (formData.get("images") ? JSON.parse(formData.get("images") as string)[0] : ""),
+    images: formData.get("images") ? JSON.parse(formData.get("images") as string) : [],
     available: formData.get("available") === "true",
   }
 
@@ -96,25 +97,25 @@ export async function createCar(formData: FormData) {
 export async function updateCar(id: string, formData: FormData) {
   console.log("=== UPDATE CAR ACTION STARTED ===")
   console.log("Car ID:", id)
-  
+
   const supabase = await createClient()
 
   // Vérifier l'authentification admin
   const {
     data: { user },
   } = await supabase.auth.getUser()
-  
+
   console.log("User:", user?.email)
-  
+
   if (!user) {
     console.error("No user authenticated")
     return { error: "Non authentifié" }
   }
 
   const { data: adminData } = await supabase.from("admins").select("id").eq("id", user.id).single()
-  
+
   console.log("Admin check:", adminData)
-  
+
   if (!adminData) {
     console.error("User is not an admin")
     return { error: "Non autorisé" }
@@ -129,7 +130,8 @@ export async function updateCar(id: string, formData: FormData) {
     fuel_type: formData.get("fuel_type") as string,
     price_per_day: Number.parseFloat(formData.get("price_per_day") as string),
     description: formData.get("description") as string,
-    image_url: formData.get("image_url") as string,
+    image_url: formData.get("image_url") as string || (formData.get("images") ? JSON.parse(formData.get("images") as string)[0] : ""),
+    images: formData.get("images") ? JSON.parse(formData.get("images") as string) : [],
     available: formData.get("available") === "true",
   }
 
@@ -144,7 +146,7 @@ export async function updateCar(id: string, formData: FormData) {
 
   console.log("Car updated successfully:", updateResult)
   console.log("=== UPDATE CAR ACTION COMPLETED ===")
-  
+
   revalidatePath("/admin/cars")
   revalidatePath(`/admin/cars/${id}`)
   return { success: true, data: updateResult }
